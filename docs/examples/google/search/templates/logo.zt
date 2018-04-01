@@ -1,0 +1,11 @@
+#var word="$1"
+#var colors="$2"
+#var R="red"
+#var Y="yellow"
+#var G="green"
+#var B="blue"
+#for (( i=0; i<${#word}; i++ ))
+  #var char="${word:$i:1}"
+  #var color_code="${colors:$i:1}"
+<span class="z-color-text--${!color_code}">${char}</span>
+#endfor

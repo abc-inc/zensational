@@ -1,0 +1,5 @@
+<span id="${@:1:1}">
+  #for link in ${@:2}
+  <a class="Fx4vi" href="#">${link}</a>
+  #endfor
+</span>

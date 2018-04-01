@@ -1,0 +1,23 @@
+#var apps="$@"
+<div id="gb" class="gb_T">
+  <div id="gbw">
+    <div style="top:0;left:0;right:0;width:100%">
+      <div class="gb_nb gb_Lg gb_R gb_Kg gb_Og gb_T" style="min-width: 220px;">
+        <div class="gb_oe gb_R gb_Lg gb_Bg">
+          #for app in ${apps}
+          <div class="gb_Q gb_R"><a class="gb_P" href="#">${app}</a></div>
+          #endfor
+        </div>
+        <div class="gb_Ec gb_Lg gb_R" style="min-width: 114px;">
+          <div class="gb_fa" id="gbsfw" style="background-color:#eee;min-width:376px"></div>
+          <div class="gb_da gb_9c gb_R" id="gbwa">
+            <div class="gb_Qc"><a class="gb_b gb_hc" href="#" title="Google apps" tabindex="0"></a></div>
+          </div>
+          <div class="gb_vg gb_R">
+            <div class="gb_Qc"><a class="z-link" id="gb_70" href="#" target="_top">Sign in</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,89 @@
+/*
+ * Copyright 2018 The zensational authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@import url('https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css');
+@import url('https://fonts.googleapis.com/css?family=Allura');
+@import "../../../../css/zensational.min.css";
+
+body,
+button,
+input {
+  font-family: 'Lato', sans-serif;
+}
+
+#lga {
+  justify-content: center;
+  display: flex;
+  font-family: 'Allura', sans-serif;
+  font-size: 10rem;
+  margin-top: 160px !important;
+}
+
+#lst-ib {
+  font-size: 1.5rem !important;
+}
+
+.gb_Ec {
+  align-items: center;
+}
+
+.z-color-red { background-color: #db3236; }
+.z-color-text--red { color: #db3236; }
+
+.z-color--yellow { background-color: #f4c20d; }
+.z-color-text--yellow { color: #f4c20d; }
+
+.z-color--green { background-color: #3cba54; }
+.z-color-text--green { color: #3cba54; }
+
+.z-color-blue { background-color: #4885ed; }
+.z-color-text--blue { color: #4885ed; }
+
+.z-color-primary { background-color: #4885ed; }
+.z-color-text--primary { color: #4885ed; }
+
+.z-button { font-weight: normal; text-decoration: none !important; }
+.z-button--primary { background-color: #4885ed; }
+
+.z-link {
+  border-bottom: none;
+  color: #4885ed;
+  font-size: 1rem;
+  font-weight: normal;
+}
+
+.jsb .z-link {
+  font-size: 1.25rem;
+}
+
+.sbibod {
+  box-shadow: none;
+}
+
+input,
+textarea {
+  border: 2px none;
+  border-bottom: 1px solid #bdbdbd;
+  border-radius: 2px;
+  color: #444;
+  font-size: 1rem;
+  outline-style: none;
+  padding-bottom: 0.5rem !important;
+}
+
+button {
+  box-shadow: none;
+}

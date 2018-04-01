@@ -1,0 +1,76 @@
+<!--
+Copyright 2018 The zensational authors.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<!DOCTYPE html>
+<html itemscope="" itemtype="http://schema.org/WebPage" lang="en-US">
+#import templates/head
+<body class="hp vasq zhe" id="gsr">
+<div class="ctr-p" id="viewport">
+  <div id="doc-info"></div>
+  <div id="cst">
+  </div>
+  <div class="jhp big" id="searchform">
+    #import templates/apps Gmail Images
+    <form class="tsf" style="overflow:visible" id="tsf" method="GET" name="f" onsubmit="alert('April Fools!');">
+      <div class="tsf-p">
+        <div class="sfibbbc">
+          <div class="sbtc" id="sbtc">
+            <div class="sbibtd">
+              <div class="sbibod " id="sfdiv">
+                <div class="lst-c">
+                  <div class="gstl_0 sbib_a" style="height: 44px;">
+                    <div class="gsst_b sbib_c" id="gs_st0" style="line-height: 44px;" dir="ltr">
+                      <a class="gsst_a" href="#"><span class="gsri_a" id="gsri_ok0"></span></a>
+                    </div>
+                    <div class="sbib_b" id="sb_ifc0" dir="ltr">
+                      <div id="gs_lc0" style="position: relative;">
+                        <input class="" id="lst-ib" maxlength="2048" name="q" autocomplete="off" title="Search" value=""
+                               style="width: 100%; background: url(&quot;data:image/gif;base64,R0lGODlhAQABAID/AMDAwAAAACH5BAEAAAAALAAAAAABAAEAAAICRAEAOw%3D%3D&quot;) transparent; position: absolute; z-index: 6; left: 0; outline: none;"
+                               dir="ltr" spellcheck="false">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="jsb" style="padding-top:18px">
+          <center>
+            #import templates/button "btnK" "Google Search"
+            #import templates/button "btnI" "I&#39;m Feeling Lucky"
+          </center>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="sfbgx"></div>
+  <div id="gac_scont"></div>
+  <div class="content" id="main"><span class="ctr-p" id="body"><center>
+    <div style="height:233px;margin-top:89px" id="lga">
+      #import templates/logo "Google" "BRYBGR"
+    </div>
+    <div style="height:118px"></div>
+    <div id="prm-pt" style="margin-top:12px">
+      <div id="als"><div id="CToSde">Google offered in: <a class="z-link" href="#">English</a> </div></div>
+      <div id="swml"></div>
+    </div>
+  </center></span>
+    #import templates/footer
+  </div>
+</div>
+<link rel="stylesheet" href="css/style.css">
+</body>
+</html>
