@@ -1,0 +1,10 @@
+# IntelliJ project files
+.idea/
+out/
+*.iml
+*.ipr
+*.iws
+
+# zensational output
+*.zt.html
+*.zt.sh
