@@ -11,7 +11,9 @@
         <div class="gb_Ec gb_Lg gb_R" style="min-width: 114px;">
           <div class="gb_fa" id="gbsfw" style="background-color:#eee;min-width:376px"></div>
           <div class="gb_da gb_9c gb_R" id="gbwa">
-            <div class="gb_Qc"><a class="gb_b gb_hc" href="#" title="Google apps" tabindex="0"></a></div>
+            <div class="gb_Qc"><a class="gb_b" href="#" title="Apps" tabindex="0">
+              <span class="lnr lnr-menu"></span>
+            </a></div>
           </div>
           <div class="gb_vg gb_R">
             <div class="gb_Qc"><a class="z-link" id="gb_70" href="#" target="_top">Sign in</a></div>
