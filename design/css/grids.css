@@ -1,0 +1,74 @@
+/*
+ * Copyright 2018 The zensational authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.z-grid {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+}
+
+.z-cell {
+  box-sizing: border-box;
+  flex-grow: 1;
+  text-align: justify;
+}
+
+.z-cell--0-col { flex-basis: 0;  display: none; }
+
+@media (min-width: 768px) {
+  .z-cell--1-col { flex-basis: 13.0208%; }
+  .z-cell--2-col { flex-basis: 24.0416%; }
+  .z-cell--3-col { flex-basis: 39.0625%; }
+  .z-cell--4-col { flex-basis: 52.0833%; }
+  .z-cell--5-col { flex-basis: 65.1041%; }
+  .z-cell--6-col { flex-basis: 78.1250%; }
+  .z-cell--7-col { flex-basis: 91.1458%; }
+  .z-cell--8-col { flex-basis: 104.1666%; }
+  .z-cell--9-col { flex-basis: 117.1875%; }
+  .z-cell--10-col { flex-basis: 130.2083%; }
+  .z-cell--11-col { flex-basis: 143.2291%; }
+  .z-cell--12-col { flex-basis: 156.2500%; }
+}
+
+@media (min-width: 992px) {
+  .z-cell--1-col { flex-basis: 10.0806%; }
+  .z-cell--2-col { flex-basis: 20.1612%; }
+  .z-cell--3-col { flex-basis: 30.2419%; }
+  .z-cell--4-col { flex-basis: 40.3225%; }
+  .z-cell--5-col { flex-basis: 50.4032%; }
+  .z-cell--6-col { flex-basis: 60.4838%; }
+  .z-cell--7-col { flex-basis: 70.5645%; }
+  .z-cell--8-col { flex-basis: 80.6451%; }
+  .z-cell--9-col { flex-basis: 90.7258%; }
+  .z-cell--10-col { flex-basis: 100.8064%; }
+  .z-cell--11-col { flex-basis: 110.8870%; }
+  .z-cell--12-col { flex-basis: 120.9677%; }
+}
+
+@media (min-width: 1200px) {
+  .z-cell--1-col { flex-basis: 8.333%; }
+  .z-cell--2-col { flex-basis: 16.666%; }
+  .z-cell--3-col { flex-basis: 25%; }
+  .z-cell--4-col { flex-basis: 33.333%; }
+  .z-cell--5-col { flex-basis: 41.666%; }
+  .z-cell--6-col { flex-basis: 50%; }
+  .z-cell--7-col { flex-basis: 58.333%; }
+  .z-cell--8-col { flex-basis: 66.666%; }
+  .z-cell--9-col { flex-basis: 75%; }
+  .z-cell--10-col { flex-basis: 83.333%; }
+  .z-cell--11-col { flex-basis: 91.666%; }
+  .z-cell--12-col { flex-basis: 100%; }
+}

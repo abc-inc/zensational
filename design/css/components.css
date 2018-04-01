@@ -1,0 +1,184 @@
+/*
+ * Copyright 2018 The zensational authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+input,
+textarea {
+  border: 2px none;
+  border-bottom: 1px solid #bdbdbd;
+  border-radius: 2px;
+  color: #444;
+  font-size: 1rem;
+  outline-style: none;
+  padding-bottom: 3px;
+}
+
+input:focus,
+input.z--focused {
+  border-bottom: 2px solid #006699;
+  padding-bottom: 2px;
+}
+
+input + div.helper {
+  visibility: hidden;
+}
+
+input:focus + div.helper,
+div.helper.z--focused,
+.z-color-text--red > div.helper,
+.z-color-text--red > input:focus  div.helper {
+  visibility: visible;
+}
+
+.z-color-text--red > input:focus,
+.z-color-text--red > input.z--focused,
+.z-color-text--red > label > input:focus,
+.z-color-text--red > label > input.z--focused {
+  border-color: #b71c1c;
+}
+
+input[disabled] {
+  cursor: not-allowed;
+  color: #999;
+}
+
+input[type=radio],
+input[type=checkbox] {
+  display: inline-block;
+  height: 1.25rem;
+  margin: 0.25rem 0.75rem 0.25rem 0.25rem;
+  vertical-align: middle;
+  width: 1.25rem;
+}
+
+label {
+  display: block;
+  font-size: 0.875rem;
+}
+
+label > input {
+  display: block;
+  font-size: 1rem;
+}
+
+div.helper {
+  font-size: 0.875rem;
+}
+
+.z-button {
+  background: #eee;
+  border: 1px solid #bdbdbd;
+  border-radius: 2px;
+  color: #000;
+  cursor: hand;
+  font-weight: normal;
+  outline-style: none;
+  padding: 0.5rem 1rem;
+}
+
+.z-button {
+  font-size: 0.875rem;
+  font-weight: bold;
+}
+
+.z-button:hover,
+.z-button.z--focused {
+  box-shadow: inset 0 0 0 99999px rgba(0, 0, 0, 0.05);
+}
+
+.z-button:active,
+.z-button.z--active {
+  box-shadow: inset 0 0 0 99999px rgba(0, 0, 0, 0.1);
+}
+
+.z-button--primary {
+  background: #069;
+  color: #fff;
+}
+
+.z-button--primary:hover,
+.z-button--primary.z--focused {
+  box-shadow: inset 0 0 0 99999px rgba(255, 255, 255, 0.1);
+}
+
+.z-button--primary:active,
+.z-button--primary.z--active {
+  box-shadow: inset 0 0 0 99999px rgba(255, 255, 255, 0.2);
+}
+
+.z-link[disabled],
+.z-link[disabled]:hover,
+.z-link[disabled]:active,
+.z-button[disabled],
+.z-button[disabled]:hover,
+.z-button[disabled]:active,
+.z-link.z--disabled,
+.z-link.z--disabled:hover,
+.z-link.z--disabled:active,
+.z-button.z--disabled,
+.z-button.z--disabled:hover,
+.z-button.z--disabled:active {
+  background: inherit;
+  box-shadow: none;
+  cursor: not-allowed;
+  color: #999;
+}
+
+a.z-link {
+  cursor: default;
+  font-size: inherit;
+  margin: 0;
+  padding: 0;
+}
+
+.z-link {
+  background: none;
+  border: 1px solid transparent;
+  border-bottom: 1px solid #006699;
+  color: #006699;
+  cursor: hand;
+  font-size: 0.875rem;
+  font-weight: bold;
+  margin: 0.25rem 0.5rem;
+  outline: none;
+  padding: 0.25rem 0.5rem;
+  text-decoration: none;
+}
+
+.z-link:hover,
+.z-link.z--focused {
+  border-bottom-color: #29b6f6;
+  color: #29b6f6;
+}
+
+.z-link:active,
+.z-link.z--active {
+  border-bottom-color: #29b6f6;
+  color: #29b6f6;
+}
+
+.z-link.z--disabled {
+  border-bottom: 1px dashed #999999;
+  color: #999999;
+}
+
+.z-link.z-link--icon {
+  border-bottom: none;
+}
+
+.z-link.z-link--no-link {
+  border-bottom: none;
+  color: #444444;
+}

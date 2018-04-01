@@ -1,0 +1,80 @@
+/*
+ * Copyright 2018 The zensational authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+.z-table {
+  border-collapse: collapse;
+  margin-bottom: 2rem;
+  width: 100%;
+}
+
+.z-table td,
+.z-table th {
+  border-bottom: 1px solid #bdbdbd;
+  border-top: 1px solid #bdbdbd;
+  line-height: 3rem;
+  padding: 0.25em;
+  text-align: left;
+  vertical-align: bottom;
+}
+
+.z-table--dense td,
+.z-table--dense th {
+  padding: 0;
+}
+
+.z-table--text td,
+.z-table--text th {
+  text-align: left;
+}
+
+.z-table--icon td,
+.z-table--icon th {
+  text-align: center;
+}
+
+.z-table--numeric td,
+.z-table--numeric th {
+  text-align: right;
+}
+
+.z-table td.z-table--text ,
+.z-table th.z-table--text {
+  text-align: left;
+}
+
+.z-table td.z-table--icon,
+.z-table th.z-table--icon {
+  text-align: center;
+}
+
+.z-table td.z-table--numeric,
+.z-table th.z-table--numeric {
+  text-align: right;
+}
+
+.z-table--striped tr:nth-child(even) td {
+  background: #eee;
+}
+
+.z-table tr.z--active td {
+  background: #ccc;
+}
+
+.z-table--hover tr:hover td,
+.z-table--hover tr:hover th {
+  background: #069;
+  color: #fff;
+}
