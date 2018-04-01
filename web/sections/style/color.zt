@@ -1,0 +1,152 @@
+<div class="z-text--headline">
+  Color in zensational is based on silky matt hues that have sharp contrast on bright and dark themes.
+</div>
+
+<h2>zensational's Color System</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    The primary color refers to the color that appears most frequently in your application.<br>
+    Secondary colors can be used to emphasize or highlight important information.<br>
+    Using colors from the Material Design palette is optional.
+  </div>
+</div>
+
+#var colors=(Light-Crimson_red Amber_yellow Lawn-Green_green Sea-Blue_blue _ Primary_primary Snow-White_white Anthracite_grey Black_black)
+<h2>Color Palette</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    The color palette comprises four base colors and four contrast colors that harmonize with each other.<br>
+    This themes ensures consistent styling on different types of applications.<br>
+    The spectrum can be filled by increasing and decreasing saturation.
+  </div>
+  <div class="z-cell z-cell--6-col">
+    <div>
+      #for c in ${colors[@]}
+      #var name=${c%_*}
+      #var color=${c#*_}
+      #if [ "${color}" == "" ]
+    </div><div>
+        #continue
+      #endif
+      <div class="color-palette">
+        <div class="color-palette--swatch z-color--${color}" data-color="${color}"></div>
+        ${name/-/&nbsp;}<br>(<span class="z-text--code info-${color}"></span>)
+      </div>
+      #endfor
+    </div>
+  </div>
+</div>
+
+<h2>Legibility</h2>
+<h3>Text on Bright Background</h3>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    Text that appears on bright background should be legible.<br>
+    The colors mustn't have too much brightness while being as colorful and clean as possible.
+  </div>
+  <div class="z-cell z-cell--6-col">
+    <div>
+      #var brightness=(dark bright)
+      #for i in 0..4 10..13
+      #var is_dark="$(( $i / 10 ))"
+      #var i="$(( $i % 10 ))"
+      #var c="${colors[$i]}"
+      #var name="${c%_*}"
+      #var color="${c#*_}"
+      #if [ "${color}" == "" ]
+    </div><div>
+    #continue
+    #endif
+    <div class="color-palette color-palette--small z-color--${brightness[$is_dark]}">
+      <div class="color-palette--swatch z-color-text--${color} z-text--display-1">
+        TEXT<br>TEXT
+      </div>
+    </div>
+    #endfor
+  </div>
+  </div>
+</div>
+
+<h3>Text on Colored Background</h3>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    It is legit to apply the color palette to the background.<br>
+    Therefore, it is important that the hues have enough contrast.
+  </div>
+  <div class="z-cell z-cell--6-col">
+    <div>
+      #var brightness=(dark bright)
+      #for i in 0..4 10..13
+      #var is_dark="$(( $i / 10 ))"
+      #var i="$(( $i % 10 ))"
+      #var c="${colors[$i]}"
+      #var name="${c%_*}"
+      #var color="${c#*_}"
+      #if [ "${color}" == "" ]
+    </div><div>
+      #continue
+      #endif
+      <div class="color-palette color-palette--small z-color--${brightness[$is_dark]}">
+        <div class="color-palette--swatch z-color--${color} z-text--display-1">
+          TEXT<br>TEXT
+        </div>
+      </div>
+      #endfor
+    </div>
+  </div>
+</div>
+
+<h3>Text on Dark Background</h3>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    Text that appears on dark background should be legible.<br>
+    The right balance on saturation and brightness is mandatory in order to display silky matt text.
+  </div>
+  <div class="z-cell z-cell--6-col">
+    <div>
+      #var brightness=(dark bright)
+      #for i in 0..4 10..13
+      #var is_dark="$(( $i / 10 ))"
+      #var i="$(( $i % 10 ))"
+      #var c="${colors[$i]}"
+      #var name="${c%_*}"
+      #var color="${c#*_}"
+      #if [ "${color}" == "" ]
+    </div><div>
+    #continue
+    #endif
+    <div class="color-palette color-palette--small z-color--${brightness[$is_dark]}">
+      <div class="color-palette--swatch z-color--black z-color-text--${color} z-text--display-1">
+        TEXT<br>TEXT
+      </div>
+    </div>
+    #endfor
+  </div>
+  </div>
+</div>
+
+
+<script>
+  function hex(x) {
+    return ("0" + parseInt(x).toString(16)).slice(-2);
+  }
+
+  function rgb2hex(rgb) {
+    if (/^#[0-9A-F]{6}$/i.test(rgb)) {
+      return rgb;
+    }
+
+    rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+    return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+  }
+
+  window.addEventListener('load', function (event) {
+    var list = document.getElementsByClassName('color-palette--swatch');
+    for (var i = 0; i < ${#colors[@]}-1; i++) {
+      var palette = list[i];
+      var color = palette.getAttribute('data-color');
+      var infoLabel = z.dom.getElementByClass('info-' + color);
+      infoLabel.innerText += rgb2hex(getComputedStyle(palette).backgroundColor);
+    }
+  });
+</script>

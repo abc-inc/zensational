@@ -1,0 +1,73 @@
+<div class="z-text--headline">
+  Lato is the standard typeface. Source Sans Pro is used for emphasizing accents in headlines.
+</div>
+
+<h2>Styles</h2>
+Type sizes are specified with rem (relative to font-size of the root element) to ensure consistent scaling.<br>
+These sizes and styles were defined provide both a clean and lightweight appearance as well as readability.
+
+<h3>Typeface</h3>
+<div class="z-grid">
+  #var sizes=(Light_300 Regular_400 Bold_700)
+  <div class="z-cell z-cell--6-col">
+    The following variants can be used to emphasize text:
+    <ul>
+      #for size in ${sizes[@]}
+      <li>${size%_*} (${size#*_})</li>
+      #endfor
+    </ul>
+  </div>
+  <div class="z-cell z-cell--6-col z-text--display-1">
+    #for size in ${sizes[@]}
+    <div style="font-weight: ${size#*_}">
+    ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+    abcdefghijklmnopqrstuvwxyz<br>
+    0123456789
+    </div>
+    #endfor
+  </div>
+</div>
+
+<h3>Styles</h3>
+<div class="z-grid" style="align-items: baseline;">
+  <div class="z-cell z-cell--12-col">
+    The basic set of styles are based on a typographic scale of 12, 14, 16 and 20.
+  </div>
+  #var styles=(display-4 display-3 display-2 display-1 headline title subheading body-2 body-1 caption button)
+  #for style in ${styles[@]}
+  <div id="style-info--${style}" class="z-cell z-cell--6-col"></div>
+  <div id="style-area--${style}" class="z-cell z-cell--6-col z-text--${style}" style="min-height: 2rem;">${style}</div>
+  #endfor
+</div>
+
+<h3>Example</h3>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">&nbsp;</div>
+  <div class="z-cell z-cell--6-col">
+    <div class="z-text--title">The quick brown fox jumps over a lazy dog.</div>
+    How razorback jumping frogs can level six piqued gymnasts.
+    How quickly daft jumping zebras vex.
+    <div class="z-text--title">Pack my box with five dozen liquor jugs.</div>
+    We promptly judged antique ivory buckles for the next prize.
+    Sixty zippers were quickly picked from the woven jute bag.
+    Crazy Fredrick bought many very exquisite opal jewels.
+    Jump by vow of quick, lazy strength in Oxford.
+    Sphinx of black quartz: judge my vow.
+    Quick zephyrs blow, vexing daft Jim.
+    Waltz, nymph, for quick jigs vex bud.
+  </div>
+</div>
+
+<script type="application/javascript">
+  window.addEventListener('load', function (event) {
+    var styles='${styles[@]}'.split(' ');
+    for (var i = 0; i < styles.length; i++) {
+      var style = styles[i];
+      var styleInfo = z.dom.getElementById('style-info--' + style);
+      var styleArea = z.dom.getElementById('style-area--' + style);
+      var computedStyle = window.getComputedStyle(styleArea);
+      var fontFamily = computedStyle.fontFamily.replace(/,.+/, '').replace(/"/g, '');
+      styleInfo.innerText = fontFamily + ' (' + computedStyle.fontWeight + ', ' + computedStyle.fontSize + ')';
+    }
+  });
+</script>

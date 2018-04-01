@@ -1,0 +1,110 @@
+#var edit_link='<a href="#" class="z-link z-link--icon"><span class="lnr lnr-pencil"></span></a>'
+<div class="z-text--headline">Data tables display rows of various data.</div>
+
+<h2>Layout</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    A data table contains a header row, which displays the column names.<br>
+    Below, there is an arbitrary number of rows containing raw data.<br>
+    Rows can contain checkboxes if the rows are supposed to be selectable.<br>
+    Furthermore, icons and other visualizations may be used.
+  </div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <table class="z-table">
+      <thead>
+        <tr><th>&nbsp;</th><th>Month</th><th class="z-table--numeric">Earnings</th><th class="z-table--icon">Bookings</th></tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><input type="checkbox"></td>
+        <td>2018-01</td>
+        <td class="z-table--numeric">300k &dollar;</td>
+        <td class="z-table--icon">${edit_link}</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox"></td>
+        <td>2018-02</td>
+        <td class="z-table--numeric dark z-color-text--red">-80k &dollar;</td>
+        <td class="z-table--icon">${edit_link}</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox"></td>
+        <td>2018-03</td>
+        <td class="z-table--numeric">50k &dollar;</td>
+        <td class="z-table--icon">${edit_link}</td>
+      </tr>
+      <tr>
+        <td><input type="checkbox"></td>
+        <td>2018-04</td>
+        <td class="z-table--numeric">2400k &dollar;</td>
+        <td class="z-table--icon">${edit_link}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<h2>Interaction</h2>
+<h3>Hover</h3>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    If a row is hovered by the user, the rows background color changes.<br>
+    At most one row can be highlighted at one point in time.
+  </div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <table class="z-table z-table--numeric z-table--hover" style="width: 40%">
+      <thead>
+      <tr><th>ID</th><th class="z-table--text">Name</th><th>Min</th><th>Max</th><th>Sum</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td class="z-table--text">Amsterdam</td><td>0</td><td>100</td><td>100</td></tr>
+        <tr><td>2</td><td class="z-table--text">Berlin</td><td>27</td><td>85</td><td>110</td></tr>
+        <tr><td>3</td><td class="z-table--text">Cairo</td><td>14</td><td>64</td><td>78</td></tr>
+      </tbody>
+    </table>
+    <table class="z-table z-table--numeric z-table--hover z-table--striped" style="width: 40%">
+      <thead>
+        <tr><th>ID</th><th class="z-table--text">Name</th><th>Min</th><th>Max</th><th>Sum</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td class="z-table--text">Amsterdam</td><td>0</td><td>100</td><td>100</td></tr>
+        <tr><td>2</td><td class="z-table--text">Berlin</td><td>27</td><td>85</td><td>110</td></tr>
+        <tr><td>3</td><td class="z-table--text">Cairo</td><td>14</td><td>64</td><td>78</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<h3>Selection</h3>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    If a table supports row selection, selected rows are highlighted.<br>
+    Selected rows permanently change their background color.<br>
+    Row selection can be done either by:
+    <ul>
+      <li>clicking on desired row or
+      <li>selecting the designed checkbox (if provided).
+    </ul>
+  </div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <table class="z-table z-table--numeric z-table--hover" style="width: 40%">
+      <thead>
+      <tr><th>ID</th><th>Name</th><th>Min</th><th>Max</th><th>Sum</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td class="z-table--text">Amsterdam</td><td>0</td><td>100</td><td>100</td></tr>
+        <tr><td>2</td><td class="z-table--text">Berlin</td><td>27</td><td>85</td><td>110</td></tr>
+        <tr><td>3</td><td class="z-table--text">Cairo</td><td>14</td><td>64</td><td>78</td></tr>
+      </tbody>
+    </table>
+    <table class="z-table z-table--numeric z-table--hover z-table--striped" style="width: 40%">
+      <thead>
+        <tr><th>ID</th><th>Name</th><th>Min</th><th>Max</th><th>Sum</th></tr>
+      </thead>
+      <tbody>
+        <tr class="z--active"><td>1</td><td class="z-table--text">Amsterdam</td><td>0</td><td>100</td><td>100</td></tr>
+        <tr class="z--active"><td>2</td><td class="z-table--text">Berlin</td><td>27</td><td>85</td><td>110</td></tr>
+        <tr><td>3</td><td class="z-table--text">Cairo</td><td>14</td><td>64</td><td>78</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>

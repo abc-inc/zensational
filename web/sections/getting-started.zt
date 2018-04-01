@@ -1,0 +1,26 @@
+<div class="z-text--headline">
+  Got bash and 5 minutes? Great, you're almost there!
+</div>
+
+<h2>Prerequisites</h2>
+zensational requires bash 4. This is it!<br>
+<p>
+  Alternatively, you can use the provided
+  <a class="z-link" href="https://github.com/abc-inc/zensational/blob/master/Dockerfile">Docker image</a>.<br>
+  If Python is available, zensational can use
+  <a class="z-link" href="https://docs.python.org/2/library/simplehttpserver.html" target="_blank">SimpleHTTPServer</a>
+  for serving resources in development mode.
+</p>
+
+<p>
+  On Windows, you may want to install <a class="z-link" href="https://cygwin.com/install.html" target="_blank">cygwin</a>
+  or <a class="z-link" href="https://gitforwindows.org/" target="_blank">Git for Windows</a>, which comes with a compatible bash version.
+</p>
+
+<h2>Installation</h2>
+<ol>
+  <li>Download zensational ${ZEN_VERSION} from
+    <a class="z-link" href="https://github.com/abc-inc/zensational/releases/download/zensational-${ZEN_VERSION}.zip" target="_blank">Github</a>
+  <li>Open the bash and run <span class="z-text--code z-color-text--blue">zen.sh setup</span>
+  <li>Checkout the <a class="z-link" href="#task-runner">Quickstart Tutorial</a></li>
+</ol>

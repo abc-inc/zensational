@@ -1,0 +1,23 @@
+<div class="z-text--headline">The Grid is a layout component for different screen sizes.</div>
+
+<h2>Layout</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    A grid always has 12 columns which dynamically resize on tablet size and phone size, respectively.<br>
+    Cells are laid out sequentially in a row, in the defined order.<br>
+    If a cell doesn't fit in the row, it flows into the following line.<br>
+    If a row contains cells which sum up to less than 12, the cells dynamically expand.
+  </div>
+  <div class="z-cell z-cell--6-col">
+    <div class="z-grid z-color--bright">
+      #for i in 1..12
+      <div class="z-cell z-cell--$i-col z-color--yellow">$i</div>
+      <div class="z-cell z-cell--$(( 12-$i ))-col z-color--green">$((12-$i))</div>
+      #endfor
+      <div class="z-cell z-cell--12-col"></div>
+      #for i in 6..4
+      <div class="z-cell z-cell--$i-col z-color--red">$i</div>
+      #endfor
+    </div>
+  </div>
+</div>

@@ -1,0 +1,31 @@
+<div class="z-text--headline">
+  Bottom navigation bars display the surrounding views and enable easy navigation.
+</div>
+
+<h2>Layout</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    The bottom navigation bar is split into two panes.<br>
+    By clicking on the left area, the browser navigates to the previous view.<br>
+    If the right area is clicked, a navigation to the next view is performed.
+  </div>
+  <div class="z-cell z-cell--6-col">
+    <div class="z-color--white">
+      <div id="navBarDemo" style="width: 100%"></div>
+    </div>
+  </div>
+</div>
+<script>
+  window.addEventListener('load', function (event) {
+    var navBar = new z.components.NavBar('Previous', 'Next');
+    navBar.render('navBarDemo');
+    navBar.update(
+        {'text': 'Navigate Backward', 'link': '#'},
+        {'text': 'Navigate Forward', 'link': '#'});
+
+    z.dom.getElementById('navBarDemo').addEventListener('click', function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    });
+  });
+</script>

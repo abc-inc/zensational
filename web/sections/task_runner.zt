@@ -1,0 +1,81 @@
+<div class="z-text--headline">
+  A picture paints a thousand words.
+</div>
+
+<h2>Tasks</h2>
+<dl>
+  <dt><a class="z-link z-link--icon" href="#task-runner_cli-start">build</a></dt>
+  <dd>build the application</dd>
+  <dt>clean</dt>
+  <dd>clean the output</dd>
+  <dt><a class="z-link z-link--icon" href="#task-runner_cli-dist">dist</a></dt>
+  <dd>create project distribution</dd>
+  <dt>help</dt>
+  <dd>display this help</dd>
+  <dt><a class="z-link z-link--icon" href="#task-runner_cli-start">install</a></dt>
+  <dd>install the dependencies</dd>
+  <dt><a class="z-link z-link--icon" href="#task-runner_cli-new">new</a></dt>
+  <dd>create a new project</dd>
+  <dt><a class="z-link z-link--icon" href="#task-runner_cli-start">run</a></dt>
+  <dd>start the web application</dd>
+  <dt>setup</dt>
+  <dd>download and install zensational</dd>
+  <dt>template</dt>
+  <dd>run template engine</dd>
+  <dt>version</dt>
+  <dd>output version information</dd>
+</dl>
+
+<div id="task-runner_cli-new" class="bookmark"></div>
+<h2>Creating a new Project</h2>
+<div class="z-text--code-block"
+>$ <span class="z-color-text--red">zen.sh -d /tmp/demo/ new</span>
+Creating a new project in "/tmp/demo"
+Application name (default: "app"): <span class="z-color-text--red">demo</span>
+Version (default "1.4"):
+Starter (default "standard"): <span class="z-color-text--red">empty</span>
+Port (default "8080"):
+Writing "/tmp/demo/Dockerfile"
+Writing "/tmp/demo/zen"
+Writing "/tmp/demo/zen.json"</div>
+
+<div id="task-runner_cli-start" class="bookmark"></div>
+<h2>Starting the Server</h2>
+<div class="z-text--code-block"
+>$ <span class="z-color-text--red">cd /tmp/demo/</span>
+$ <span class="z-color-text--red">zen run</span>
+<span class="z-color-text--blue">:install:import "base"</span>
+<span class="z-color-text--blue">:install:import "events"</span>
+module "events" requires "dom"
+<span class="z-color-text--blue">:install:import "dom"</span>
+<span class="z-color-text--blue">:install:import "net"</span>
+module "net" requires "asserts"
+<span class="z-color-text--blue">:install:import "asserts"</span>
+<span class="z-color-text--yellow">module "dom" already imported</span>
+<span class="z-color-text--blue">:install</span>
+<span class="z-color-text--blue">:build</span>
+<span class="z-color-text--blue">:run</span>
+Starting webserver at port 8080...
+Sun, 01 Apr 2018 08:00:14 +0200 | INFO   | server     |  | Serving static content from : /tmp/demo/app
+Sun, 01 Apr 2018 08:00:14 +0200 | INFO   | server     |  | Starting WebSocket server   : ws://localhost:8080/
+Sun, 01 Apr 2018 08:00:15 +0200 | INFO   | server     |  | Serving CGI or static files : http://localhost:8080/
+Sun, 01 Apr 2018 08:00:26 +0200 | ACCESS | http       | url:'http://localhost:8080/js/zen.js' | STATIC</div>
+
+<div id="task-runner_cli-dist" class="bookmark"></div>
+<h2>Building the Distribution</h2>
+<div class="z-text--code-block"
+>$ <span class="z-color-text--red">zen dist docker</span>
+<span class="z-color-text--blue">:install</span> <span class="z-color-text--yellow">UP-TO-DATE</span>
+<span class="z-color-text--blue">:build</span>
+<span class="z-color-text--blue">:dist:docker</span>
+Creating Docker image...
+Docker version 17.10.0-ce, build f4ffd25
+Sending build context to Docker daemon   12.8kB
+Step 1/2 : FROM zensational:1.4
+---> 637f8761e5fe
+Step 2/2 : COPY ./ /var/www/
+---> Using cache
+---> 8e9dc3806dfd
+Successfully built 8e9dc3806dfd
+Successfully tagged demo:latest
+<span class="z-color-text--blue">:dist</span></div>

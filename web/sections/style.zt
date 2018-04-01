@@ -1,0 +1,6 @@
+<section id="color">
+  #import style/color
+</section>
+<section id="typography">
+  #import style/typography
+</section>

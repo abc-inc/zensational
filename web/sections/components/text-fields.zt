@@ -1,0 +1,78 @@
+<div class="z-text--headline">Text fields allow users to input, edit, and select text.</div>
+
+<h2>Layout</h2>
+Text fields contain the following elements:
+
+<h3>Label</h3>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    Labels display the name and semantics of the text field.<br>
+    Every text field should have a label.
+  </div>
+  <div class="z-cell z-cell--3-col">
+    <label for="label">Label</label>
+    <input type="text" value="Input" id="label">
+  </div>
+  <div class="z-cell z-cell--3-col">
+    <label>Label
+      <input type="text" class="z--focused" value="Input">
+    </label>
+  </div>
+</div>
+
+<h3>Placeholder</h3>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    Empty input fields may contain placeholder text.<br>
+    The text can contain an example, such as a phone number.
+  </div>
+  <div class="z-cell z-cell--3-col">
+    <label for="placeholder">Label</label>
+    <input type="text" placeholder="Placeholder" id="placeholder">
+  </div>
+  <div class="z-cell z-cell--3-col">&nbsp;</div>
+</div>
+
+<h3>Helper Text</h3>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    Additional information may be displayed below a fields.<br>
+    It should be visible either persistently or only on focus.
+  </div>
+  <div class="z-cell z-cell--3-col">
+    <label for="helper">Label</label>
+    <input type="text" placeholder="Placeholder" id="helper">
+    <div class="helper">Must contain only numbers</div>
+  </div>
+  <div class="z-cell z-cell--3-col">
+    <label>Label
+      <input type="password" value="secret">
+    </label>
+    <div class="helper z--focused">At least 8 characters</div>
+  </div>
+</div>
+
+<h3>Error Message</h3>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    Upon validation errors, text fields can display an error message below the field.<br>
+    This message should contain instructions on how to fix the error.<br>
+    Additionally, an icon or the term &quot;Error&quot; should be used to increase visibility.<br>
+    The error message is displayed permanently and replaces the helper text.
+  </div>
+  <div class="z-cell z-cell--3-col">
+    <div class="z-color-text--red">
+      <label for="helper">Label</label>
+      <input type="text" placeholder="Placeholder" id="error">
+      <div class="helper">Error: Must contain only numbers</div>
+    </div>
+  </div>
+  <div class="z-cell z-cell--3-col">
+    <div class="z-color-text--red">
+      <label>Label
+        <input type="password" value="secret">
+      </label>
+      <div class="helper"><span class="lnr lnr-warning"></span> Passwords do not match</div>
+    </div>
+  </div>
+</div>

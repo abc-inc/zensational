@@ -1,0 +1,42 @@
+<div class="z-text--headline">Lists present multiple rectangular items vertically aligned.</div>
+
+<h2>Layout</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    For collections of ordered items with compact content, lists shall be used.<br>
+    Each row contains a single cell with text and or images.
+  </div>
+  #for i in 0..1
+  <div class="z-cell z-cell--3-col">
+    <div class="z-list">
+      <div class="z-list--item">
+        #if [ $i > 0 ]
+        <div class="z-list--item-icon"><span class="z-color-text--primary z-text--display-1">JD</span></div>
+        #endif
+        <div class="z-list--item-body">
+          <div class="z-text--body-2">Jane Doe</div>
+          <div class="z-text--body-1">jane.doe@work.com</div>
+        </div>
+      </div>
+      <div class="z-list--item">
+        #if [ $i > 0 ]
+        <div class="z-list--item-icon"><span class="lnr lnr-user z-color-text--red z-text--display-1"></span></div>
+        #endif
+        <div class="z-list--item-body">
+          <div class="z-text--body-2">John Doe</div>
+          <div class="z-text--body-1">john.doe@abc.xyz</div>
+        </div>
+      </div>
+      <div class="z-list--item">
+        #if [ $i > 0 ]
+        <div class="z-list--item-icon"><div style="background: #000000 url('images/89b39989a1edb761865c1f39976567ee.jpg') no-repeat center; background-size: 100%; width: 3rem; height: 3rem;"></div></div>
+        #endif
+        <div class="z-list--item-body">
+          <div class="z-text--body-2">John Smith</div>
+          <div class="z-text--body-1">john@smith.co.uk</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  #endfor
+</div>

@@ -1,0 +1,102 @@
+<div class="z-text--headline">
+  Buttons trigger actions that will happen when the user touches them.
+</div>
+
+#var highlight="z-text--body-2"
+#var height="4"
+<h2>Button Types</h2>
+<div class="z-grid" style="align-items: flex-end;">
+  <div class="z-cell z-cell--6-col">
+    <h3>Link</h3> A typical link without additional spacing that can be embedded into text.<br>
+  </div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <div class="z-cell z-cell--3-col z-text--center"><a class="z-link">Click me</a></div>
+  </div>
+  <div class="z-cell z-cell--6-col">
+    <h3>Flat Button</h3> A rectangular button made embedded into its surrounding container.<br>
+  </div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-link">Click me</button></div>
+  </div>
+  <div class="z-cell z-cell--6-col">
+    <h3>Raised Button</h3> A rectangular button that visually stands out of its surrounding container.<br>
+  </div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-button">Click me</button></div>
+  </div>
+  <div class="z-cell z-cell--6-col">
+    <h3>Primary Button</h3> A raised button with additional visuals indicating the default action.<br>
+    In every container, there should be at most one primary button.
+  </div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-button z-button--primary">Click me</button></div>
+  </div>
+</div>
+
+<h2>Icons</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col" style="height: 4rem">
+    Flat Buttons and Raised Buttons may have icons.
+  </div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-link"><span class="lnr lnr-magnifier"></span> Search</button></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-link"><span class="lnr lnr-magnifier"></span> Search</button></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-button"><span class="lnr lnr-magnifier"></span> Search</button></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-button z-button--primary"><span class="lnr lnr-magnifier"></span> Search</button></div>
+  </div>
+  <div class="z-cell z-cell--6-col" style="height: 4rem">
+    The text can be omitted if the action can be derived from the icon.<br>
+    Additionally, the size can be increased by 1.25x through 7x.
+  </div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-link z-link--icon"><span class="lnr lnr-magnifier z-text--display-1"></span></button></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-link z-link--icon"><span class="lnr lnr-magnifier z-text--display-2"></span></button></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-link z-link--icon"><span class="lnr lnr-magnifier z-text--display-3"></span></button></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-link z-link--icon"><span class="lnr lnr-magnifier z-text--display-4"></span></button></div>
+  </div>
+</div>
+
+
+<h2>Behavior</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col ${highlight}" style="height: 4rem">&nbsp;</div>
+  <div class="z-cell z-cell--6-col z-grid ${highlight}">
+    <div class="z-cell z-cell--3-col z-text--center">Link</div>
+    <div class="z-cell z-cell--3-col z-text--center">Flat Button</div>
+    <div class="z-cell z-cell--3-col z-text--center">Raised Button</div>
+    <div class="z-cell z-cell--3-col z-text--center">Primary Button</div>
+  </div>
+
+  <div class="z-cell z-cell--6-col ${highlight}" style="height: 4rem">Normal</div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <div class="z-cell z-cell--3-col z-text--center"><a href="#" class="z-link">Click me</a></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-link">Click me</button></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-button">Click me</button></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-button z-button--primary">Click me</button></div>
+  </div>
+
+  <div class="z-cell z-cell--6-col ${highlight}" style="height: 4rem">Focused</div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <div class="z-cell z-cell--3-col z-text--center"><a href="#" class="z-link z--focused">Click me</a></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-link z--focused">Click me</button></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-button z--focused">Click me</button></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-button z-button--primary z--focused">Click me</button></div>
+  </div>
+
+  <div class="z-cell z-cell--6-col ${highlight}" style="height: 4rem">Active</div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <div class="z-cell z-cell--3-col z-text--center"><a href="#" class="z-link z--active">Click me</a></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-link z--active">Click me</button></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-button z--active">Click me</button></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-button z-button--primary z--active">Click me</button></div>
+  </div>
+
+  <div class="z-cell z-cell--6-col ${highlight}" style="height: 4rem">Disabled</div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <div class="z-cell z-cell--3-col z-text--center"><a href="#" class="z-link z--disabled">Click me</a></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-link" disabled>Click me</button></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-button" disabled>Click me</button></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-button z-button--primary" disabled>Click me</button></div>
+  </div>
+
+</div>

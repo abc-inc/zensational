@@ -1,0 +1,5 @@
+<div>
+  created at ${DATE}<br>
+  <span class="z-text--highlight">$2</span><br>
+  args: $@<br>
+</div>

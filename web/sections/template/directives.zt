@@ -1,0 +1,282 @@
+<div class="z-text--headline">
+  A template is a reusable fragment of text containing directives.
+</div>
+
+#var HOME=/home/user
+<style>
+  .z-cell {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+
+  .cmd {
+    color: #ff6666;
+  }
+
+  .cmt {
+    color: #aabb22;
+  }
+
+  .str {
+    color: #006699;
+  }
+
+  .var {
+    color: #eeaa55;
+  }
+</style>
+
+<h2>Overview</h2>
+zensational has builtin directives for the following use cases:
+<ul>
+  <li><a class="z-link z-link--icon" href="#templates_var">Variables</a>
+  <li><a class="z-link z-link--icon" href="#templates_str-basics">Strings - Basics</a>
+  <li><a class="z-link z-link--icon" href="#templates_str-case">Strings - Case Format</a>
+  <li><a class="z-link z-link--icon" href="#templates_str-substr">Strings - Substring</a>
+  <li><a class="z-link z-link--icon" href="#templates_str-repl">Strings - Replacement</a>
+  <li><a class="z-link z-link--icon" href="#templates_call">Call External Program</a>
+  <li><a class="z-link z-link--icon" href="#templates_arithm">Integer Arithmetic</a>
+  <li><a class="z-link z-link--icon" href="#templates_cond">Conditions</a>
+  <li><a class="z-link z-link--icon" href="#templates_loop">Loops</a>
+  <li><a class="z-link z-link--icon" href="#templates_import">Imports</a>
+</ul>
+
+<div id="templates_var" class="bookmark"></div>
+<h2>Variables</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--2-col">Variable</div>
+  <div class="z-text--code z-cell z-cell--5-col"><span class="cmd">&num;var</span> CLASSES=<span class="str">"z-text--code z-cell z-cell--5-col"</span></div>
+  <div class="z-text--code z-cell z-cell--5-col cmt"># sets CLASSES to "z-text--code z-cell z-cell--5-col"
+    #var CLASSES="z-text--code z-cell z-cell--5-col"
+  </div>
+  <div class="z-cell z-cell--2-col">Call other program</div>
+  <div class="${CLASSES}"><span class="cmd">#var</span> DATE=<span class="str">"\$(date +%s.%N)"</span></div>
+  <div class="${CLASSES} cmt">
+    #var DATE="$(date +%s.%N)"
+    &num; sets DATE to "${DATE}"
+  </div>
+  <div class="z-cell z-cell--2-col">String Interpolation</div>
+  <div class="${CLASSES}"><span class="cmd">&num;var</span> path=<span class="str">"<span class="var">\${HOME}</span> sweet home"</span>
+  </div>
+  <div class="${CLASSES} cmt"># sets path to "${HOME} sweet home"
+    #var path="${HOME} sweet home"
+  </div>
+  <div class="z-cell z-cell--2-col">Constant</div>
+  <div class="${CLASSES}">
+    <span class="cmd">&num;val</span> CSS=<span class="str">"CLASSES"</span><br>
+    <span class="cmd">&num;const</span> CSS=<span class="str">"OVERRIDE"</span></div>
+  <div class="${CLASSES}">
+    #val CSS="CLASSES"
+    <div class="cmt"># sets CSS To "CLASSES"</div>
+    <div class="z-color-text--red"># component.zt.sh: line 69: CSS: readonly variable</div>
+  </div>
+  <div class="z-cell z-cell--2-col">Resolve variable by name</div>
+  <div class="${CLASSES} var">\${!CSS}<br>(\${CSS})</div>
+  <div class="${CLASSES}">${!CSS}<br>(${CSS})</div>
+</div>
+
+<div id="templates_str-basics" class="bookmark"></div>
+<h2>Strings - Basics</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--2-col">Length</div>
+  <div class="${CLASSES} var">\${#path}</div>
+  <div class="${CLASSES}">${#path}</div>
+</div>
+
+<div id="templates_str-case" class="bookmark"></div>
+<h2>Strings - Case Format</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--2-col">Upper Case</div>
+  <div class="${CLASSES} var">\${CLASSES^^}</div>
+  <div class="${CLASSES}">${CLASSES^^}</div>
+  <div class="z-cell z-cell--2-col">Lower Case</div>
+  <div class="${CLASSES} var">\${CLASSES,,}</div>
+  <div class="${CLASSES}">${CLASSES,,}</div>
+</div>
+
+<div id="templates_str-substr" class="bookmark"></div>
+<h2>Strings - Substring</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--2-col">Starts with index</div>
+  <div class="${CLASSES} var">\${path:10}</div>
+  <div class="${CLASSES}">${path:10}</div>
+  <div class="z-cell z-cell--2-col">Starts with index (reverse)</div>
+  <div class="${CLASSES} var">\${path:(-4)}</div>
+  <div class="${CLASSES}">${path:(-4)}</div>
+  <div class="z-cell z-cell--2-col">Substring</div>
+  <div class="${CLASSES} var">\${path:6:4}</div>
+  <div class="${CLASSES}">${path:6:4}</div>
+  <div class="z-cell z-cell--2-col">Remove prefix</div>
+  <div class="${CLASSES} var">\${path#*/}</div>
+  <div class="${CLASSES}">${path#*/}</div>
+  <div class="z-cell z-cell--2-col">Remove prefix (greedy)</div>
+  <div class="${CLASSES} var">\${path##*/}</div>
+  <div class="${CLASSES}">${path##*/}</div>
+  <div class="z-cell z-cell--2-col">Remove suffix</div>
+  <div class="${CLASSES} var">\${path%o*}</div>
+  <div class="${CLASSES}">${path%o*}</div>
+  <div class="z-cell z-cell--2-col">Remove suffix (greedy)</div>
+  <div class="${CLASSES} var">\${path%%o*}</div>
+  <div class="${CLASSES}">${path%%o*}</div>
+</div>
+
+<div id="templates_str-repl" class="bookmark"></div>
+<h2>Strings - Replacement</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--2-col">Replace first occurrence</div>
+  <div class="${CLASSES} var">\${path/home/castle}</div>
+  <div class="${CLASSES}">${path/home/castle}</div>
+  <div class="z-cell z-cell--2-col">Replace all occurrences</div>
+  <div class="${CLASSES} var">\${path//home/castle}</div>
+  <div class="${CLASSES}">${path//home/castle}</div>
+  <div class="z-cell z-cell--2-col">Replace prefix</div>
+  <div class="${CLASSES} var">\${path/#\/home/\/castle}</div>
+  <div class="${CLASSES}">${path/#\/home/\/castle}</div>
+  <div class="z-cell z-cell--2-col">Replace suffix</div>
+  <div class="${CLASSES} var">\${path/%home/castle}</div>
+  <div class="${CLASSES}">${path/%home/castle}</div>
+</div>
+
+<div id="templates_call" class="bookmark"></div>
+<h2>Call External Program</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--2-col">Simple call</div>
+  <div class="${CLASSES}">\$(hostname)</div>
+  <div class="${CLASSES}">$(hostname)</div>
+  <div class="z-cell z-cell--2-col">Call perl with arguments</div>
+  <div class="${CLASSES}">\$(perl -e <span class="str">"print 3/2."</span>)</div>
+  <div class="${CLASSES}">$(perl -e "print 3/2.")</div>
+  <div class="z-cell z-cell--2-col">Execute JavaScript using Java</div>
+  <div class="${CLASSES}">\$(jjs -e <span class="str">"print 3/2."</span>)</div>
+  <div class="${CLASSES}">$(perl -e "print 3/2.")</div>
+</div>
+
+<div id="templates_arithm" class="bookmark"></div>
+<h2>Integer Arithmetic</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--2-col">Addition</div>
+  <div class="${CLASSES}">\$((2+3))</div>
+  <div class="${CLASSES}">$((2+3))</div>
+  <div class="z-cell z-cell--2-col">Subtraction</div>
+  <div class="${CLASSES}">\$((2-3))</div>
+  <div class="${CLASSES}">$((2-3))</div>
+  <div class="z-cell z-cell--2-col">Multiplication</div>
+  <div class="${CLASSES}">\$((2*3))</div>
+  <div class="${CLASSES}">$((2*3))</div>
+  <div class="z-cell z-cell--2-col">Division</div>
+  <div class="${CLASSES}">\$((2/3))</div>
+  <div class="${CLASSES}">$((2/3))</div>
+  <div class="z-cell z-cell--2-col">Increment</div>
+  <div class="${CLASSES}"><span class="cmd">&num;var</span> a=2<br>\$((a+=1))</div>
+  <div class="${CLASSES}">
+    #var a=2
+    <div class="cmt"># sets a to ${a}</div>
+    $((a+=1))
+  </div>
+</div>
+
+<div id="templates_cond" class="bookmark"></div>
+<h2>Conditions</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--2-col">if</div>
+  <div class="${CLASSES}">
+    <span class="cmd">#if</span> [ 0 < 1 ]<br>
+    0 < 1<br>
+    <span class="cmd">#endif</span>
+  </div>
+  <div class="${CLASSES}">
+    #if [ 0 < 1 ]
+    0 < 1
+    #endif
+  </div>
+  <div class="z-cell z-cell--2-col">if-else</div>
+  <div class="${CLASSES}">
+    <span class="cmd">#if</span> [ 0 >= 1 || 0 <= 1 ]<br>
+    tautology<br>
+    <span class="cmd">#else</span><br>
+    contradiction<br>
+    <span class="cmd">#endif</span>
+  </div>
+  <div class="${CLASSES}">
+    #if [ 0 >= 1 || 0 <= 1 ]
+    tautology
+    #else
+    contradiction
+    #endif
+  </div>
+  <div class="z-cell z-cell--2-col">if-elif</div>
+  <div class="${CLASSES}">
+    <span class="cmd">#if</span> [ <span class="var">\${a}</span> == 2 && 2 != <span class="str">"<span class="var">\${a}</span>"</span> ]<br>
+    contradiction<br>
+    <span class="cmd">#elif</span> [ <span class="str">"<span class="var">\$a</span>"</span> == <span class="var">\${a}</span> ]<br>
+    a=<span class="var">\$a</span><br>
+    <span class="cmd">#endif</span>
+  </div>
+  <div class="${CLASSES}">
+    #if [ ${a} == 2 && 2 != "${a}" ]
+    contradiction
+    #elif [ "$a" == ${a} ]
+    a=$a
+    #endif
+  </div>
+</div>
+
+<div id="templates_loop" class="bookmark"></div>
+<h2>Loops</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--2-col">Iteration</div>
+  <div class="${CLASSES}">
+    <span class="cmd">&num;for</span> <span class="var">i</span> in 1..3<br>
+    <span class="var">\${i}</span>*(<span class="var">\$i</span>+1)=\$((<span class="var">i</span>*(<span class="var">\$i</span>+1)))&lt;br&gt;<br>
+    <span class="cmd">&num;endfor</span>
+  </div>
+  <div class="${CLASSES}">
+    #for i in 1..3
+    ${i}*($i+1)=$((i*($i+1)))<br>
+    #endfor
+  </div>
+  <div class="z-cell z-cell--2-col">Enumeration</div>
+  <div class="${CLASSES}">
+    &lt;ul&gt;<br>
+    <span class="cmd">&num;for</span> <span class="var">str</span> in a <span class="var">\$a</span>
+    <span class="str">"<span class="var">\$CLASSES</span>"</span> <span class="var">\$CLASSES</span><br>
+    &lt;li&gt;<span class="var">\${str}</span>&lt;/li&gt;<br>
+    <span class="cmd">&num;endfor</span><br>
+    &lt;/ul&gt;
+  </div>
+  <div class="${CLASSES}">
+    <ul>
+      #for str in a $a "$CLASSES" $CLASSES
+      <li>${str}</li>
+      #endfor
+    </ul>
+  </div>
+</div>
+
+<div id="templates_import" class="bookmark"></div>
+<h2>Imports</h2>
+<span class="z-text--highlight">footer.zt</span>
+<div class="z-text--code-block"
+>&lt;div&gt;
+created at <span class="var">\${DATE}</span>
+&lt;span class="z-text--highlight"&gt;<span class="var">\$2</span>&lt;/span&gt;
+args: <span class="var">\$@</span>
+&lt;/div&gt;
+</div>
+<p>
+<div class="z-grid">
+  <div class="z-cell z-cell--2-col">Import</div>
+  <div class="${CLASSES}">
+    <span class="cmd">&num;var</span> NOW=<span class="str">"\$(date +%s.%N)"</span><br>
+    <span class="cmd">&num;var</span> DIFF=
+    <span class="str">"\$(echo print <span class="str">"<span class="var">\${NOW}</span>-<span class="var">\${DATE}</span>"</span> | perl)"</span><br>
+    <span class="cmd">&num;import</span> footer <span class="str">"in"</span> <span class="var">\${DIFF}</span> sec
+  </div>
+  <div class="${CLASSES}">
+    #var NOW="$(date +%s.%N)"
+    <span class="cmt"># sets NOW to "${NOW}"</span><br>
+    #var DIFF="$(echo print "${NOW}-${DATE}" | perl)"
+    <span class="cmt"># sets DIFF to "${DIFF}"</span><br>
+    #import footer "in" ${DIFF} sec
+  </div>
+</div>

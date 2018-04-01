@@ -1,0 +1,105 @@
+<div class="z-text--headline">A card is a defined layer that contains detailed contextual information.</div>
+
+<h2>Layout</h2>
+<h3>Basic</h3>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    Cards are vertical containers consisting of header, body and footer.<br>
+    The header can be colored individually and describes the context.<br>
+    The body contains a detailed message or an image.<br>
+    The footer may contain buttons for triggering context-specific actions.
+  </div>
+  <div class="z-cell z-cell--6-col">
+    <div class="z-card">
+      <div class="z-card--content">
+        <div class="z-card--header z-text--headline z-color--blue z-color-text--white">Good News</div>
+        <div class="z-card--body">
+          Card Layout is available in zensational.
+        </div>
+        <div class="z-card--footer">
+          <button class="z-button">Learn more</button>&nbsp;<button class="z-button">Share</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>Image</h3>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    Background images can be used for a more vivid design.
+  </div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <div class="z-cell z-cell--4-col">
+      <div class="z-card">
+        <div class="z-card--content card--image card--trail">
+          <div class="z-card--header z-text--headline z-color-text--white">Nothing's there!</div>
+          <div class="z-card--footer">
+            <button class="z-button">Discard</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="z-cell z-cell--4-col">
+      <div class="z-card">
+        <div class="z-card--content card--image">
+          <div class="z-card--header z-text--headline card--trail z-color-text--white">Nothing's there!</div>
+          <div class="z-card--footer">
+            <button class="z-button">Discard</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="z-cell z-cell--4-col">
+      <div class="z-card">
+        <div class="z-card--content card--image">
+          <div class="z-card--header z-text--headline">Nothing's there!</div>
+          <div class="z-card--body card--aurora"></div>
+          <div class="z-card--footer">
+            <button class="z-link z-link--icon">Discard</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="z-cell z-cell--6-col"></div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <div class="z-cell z-cell--4-col z-text--center">image in card (no body)</div>
+    <div class="z-cell z-cell--4-col z-text--center">image in header (no body)</div>
+    <div class="z-cell z-cell--4-col z-text--center">image in body</div>
+  </div>
+</div>
+
+<h2>Card Collection</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    Cards are a convenient layer for displaying different elements.<br>
+    For example, they can be used to display photo galleries.<br>
+  </div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <div class="z-card z-cell z-cell--3-col z-card--content">
+      <div class="z-card--header z-text--headline">Word of the Day</div>
+      <div class="z-card--body">
+        <div class="z-text--title">signanz</div>
+        <div class="z-text--body-1">
+          Signanz is a term used to add unnecessary complexity to otherwise simple statements or questions
+          in order to make the author and his work look more sophisticated regardless of his or its actual signanz.
+        </div>
+      </div>
+    </div>
+    <div class="z-card z-cell z-cell--3-col z-card--content">
+      <div class="z-card--header z-text--headline">Weather Forecast</div>
+      <div class="z-card--body">
+        Either it will be sunny or not.
+      </div>
+      <div class="z-card--footer">
+        <button class="z-button">I know</button>
+      </div>
+    </div>
+    <div class="z-card z-cell z-cell--6-col z-card--content">
+      <div class="z-card--body">
+        3.141592653589793238462643383279502884197169399375105820974944
+      </div>
+    </div>
+  </div>
+</div>
