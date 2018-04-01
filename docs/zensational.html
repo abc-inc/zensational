@@ -1,0 +1,1365 @@
+<!--
+Copyright 2018 The zensational authors.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<title>zensational</title>
+
+<link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
+<link href="https://fonts.googleapis.com/css?family=Allura" rel="stylesheet">
+<link href="css/zensational.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<link href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css" rel="stylesheet">
+
+<nav id="menu">
+  <a href="zensational.html"><div><h1 class="zensational z-text--display-1">zensational</h1></div></a>
+  <dl>
+  <dt><a href="#getting-started" data-bookmark="getting-started" data-category="Getting-Started">Getting Started</a></dt>
+  </dl><dl>
+  <dt><a href="#task-runner" data-bookmark="task-runner" data-category="Task-Runner">Task Runner</a></dt>
+  </dl><dl>
+  <dt><a href="#templates" data-bookmark="templates" data-category="Templates">Templates</a></dt>
+  </dl><dl>
+  <dt>Style</dt>
+  <dd><a href="#_color" data-bookmark="style_color" data-category="Style" data-section="Color">Color</a></dd>
+  <dd><a href="#_typography" data-bookmark="style_typography" data-category="Style" data-section="Typography">Typography</a></dd>
+  </dl><dl>
+  <dt>Components</dt>
+  <dd><a href="#_bottom-navigation" data-bookmark="components_bottom-navigation" data-category="Components" data-section="Bottom-Navigation">Bottom Navigation</a></dd>
+  <dd><a href="#_buttons" data-bookmark="components_buttons" data-category="Components" data-section="Buttons">Buttons</a></dd>
+  <dd><a href="#_cards" data-bookmark="components_cards" data-category="Components" data-section="Cards">Cards</a></dd>
+  <dd><a href="#_data-tables" data-bookmark="components_data-tables" data-category="Components" data-section="Data-Tables">Data Tables</a></dd>
+  <dd><a href="#_grids" data-bookmark="components_grids" data-category="Components" data-section="Grids">Grids</a></dd>
+  <dd><a href="#_lists" data-bookmark="components_lists" data-category="Components" data-section="Lists">Lists</a></dd>
+  <dd><a href="#_selection-controls" data-bookmark="components_selection-controls" data-category="Components" data-section="Selection-Controls">Selection Controls</a></dd>
+  <dd><a href="#_text-fields" data-bookmark="components_text-fields" data-category="Components" data-section="Text-Fields">Text Fields</a></dd>
+  </dl>
+</nav>
+<div id="content">
+  <div id="top" class="z-color--white">
+    <h2>zensational</h2>
+  </div>
+  <section id="getting-started" hidden>
+<div class="z-text--headline">
+  Got bash and 5 minutes? Great, you're almost there!
+</div>
+
+<h2>Prerequisites</h2>
+zensational requires bash 4. This is it!<br>
+<p>
+  Alternatively, you can use the provided
+  <a class="z-link" href="https://github.com/abc-inc/zensational/blob/master/Dockerfile">Docker image</a>.<br>
+  If Python is available, zensational can use
+  <a class="z-link" href="https://docs.python.org/2/library/simplehttpserver.html" target="_blank">SimpleHTTPServer</a>
+  for serving resources in development mode.
+</p>
+
+<p>
+  On Windows, you may want to install <a class="z-link" href="https://cygwin.com/install.html" target="_blank">cygwin</a>
+  or <a class="z-link" href="https://gitforwindows.org/" target="_blank">Git for Windows</a>, which comes with a compatible bash version.
+</p>
+
+<h2>Installation</h2>
+<ol>
+  <li>Download zensational 1.4 from
+    <a class="z-link" href="https://github.com/abc-inc/zensational/releases/download/zensational-1.4.zip" target="_blank">Github</a>
+  <li>Open the bash and run <span class="z-text--code z-color-text--blue">zen.sh setup</span>
+  <li>Checkout the <a class="z-link" href="#task-runner">Quickstart Tutorial</a></li>
+</ol>
+  </section>
+  <section id="task-runner" hidden>
+<div class="z-text--headline">
+  A picture paints a thousand words.
+</div>
+
+<h2>Tasks</h2>
+<dl>
+  <dt><a class="z-link z-link--icon" href="#task-runner_cli-start">build</a></dt>
+  <dd>build the application</dd>
+  <dt>clean</dt>
+  <dd>clean the output</dd>
+  <dt><a class="z-link z-link--icon" href="#task-runner_cli-dist">dist</a></dt>
+  <dd>create project distribution</dd>
+  <dt>help</dt>
+  <dd>display this help</dd>
+  <dt><a class="z-link z-link--icon" href="#task-runner_cli-start">install</a></dt>
+  <dd>install the dependencies</dd>
+  <dt><a class="z-link z-link--icon" href="#task-runner_cli-new">new</a></dt>
+  <dd>create a new project</dd>
+  <dt><a class="z-link z-link--icon" href="#task-runner_cli-start">run</a></dt>
+  <dd>start the web application</dd>
+  <dt>setup</dt>
+  <dd>download and install zensational</dd>
+  <dt>template</dt>
+  <dd>run template engine</dd>
+  <dt>version</dt>
+  <dd>output version information</dd>
+</dl>
+
+<div id="task-runner_cli-new" class="bookmark"></div>
+<h2>Creating a new Project</h2>
+<div class="z-text--code-block"
+>$ <span class="z-color-text--red">zen.sh -d /tmp/demo/ new</span>
+Creating a new project in "/tmp/demo"
+Application name (default: "app"): <span class="z-color-text--red">demo</span>
+Version (default "1.4"):
+Starter (default "standard"): <span class="z-color-text--red">empty</span>
+Port (default "8080"):
+Writing "/tmp/demo/Dockerfile"
+Writing "/tmp/demo/zen"
+Writing "/tmp/demo/zen.json"</div>
+
+<div id="task-runner_cli-start" class="bookmark"></div>
+<h2>Starting the Server</h2>
+<div class="z-text--code-block"
+>$ <span class="z-color-text--red">cd /tmp/demo/</span>
+$ <span class="z-color-text--red">zen run</span>
+<span class="z-color-text--blue">:install:import "base"</span>
+<span class="z-color-text--blue">:install:import "events"</span>
+module "events" requires "dom"
+<span class="z-color-text--blue">:install:import "dom"</span>
+<span class="z-color-text--blue">:install:import "net"</span>
+module "net" requires "asserts"
+<span class="z-color-text--blue">:install:import "asserts"</span>
+<span class="z-color-text--yellow">module "dom" already imported</span>
+<span class="z-color-text--blue">:install</span>
+<span class="z-color-text--blue">:build</span>
+<span class="z-color-text--blue">:run</span>
+Starting webserver at port 8080...
+Sun, 01 Apr 2018 08:00:14 +0200 | INFO   | server     |  | Serving static content from : /tmp/demo/app
+Sun, 01 Apr 2018 08:00:14 +0200 | INFO   | server     |  | Starting WebSocket server   : ws://localhost:8080/
+Sun, 01 Apr 2018 08:00:15 +0200 | INFO   | server     |  | Serving CGI or static files : http://localhost:8080/
+Sun, 01 Apr 2018 08:00:26 +0200 | ACCESS | http       | url:'http://localhost:8080/js/zen.js' | STATIC</div>
+
+<div id="task-runner_cli-dist" class="bookmark"></div>
+<h2>Building the Distribution</h2>
+<div class="z-text--code-block"
+>$ <span class="z-color-text--red">zen dist docker</span>
+<span class="z-color-text--blue">:install</span> <span class="z-color-text--yellow">UP-TO-DATE</span>
+<span class="z-color-text--blue">:build</span>
+<span class="z-color-text--blue">:dist:docker</span>
+Creating Docker image...
+Docker version 17.10.0-ce, build f4ffd25
+Sending build context to Docker daemon   12.8kB
+Step 1/2 : FROM zensational:1.4
+---> 637f8761e5fe
+Step 2/2 : COPY ./ /var/www/
+---> Using cache
+---> 8e9dc3806dfd
+Successfully built 8e9dc3806dfd
+Successfully tagged demo:latest
+<span class="z-color-text--blue">:dist</span></div>
+  </section>
+  <section id="style" hidden>
+<section id="color">
+<div class="z-text--headline">
+  Color in zensational is based on silky matt hues that have sharp contrast on bright and dark themes.
+</div>
+
+<h2>zensational's Color System</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    The primary color refers to the color that appears most frequently in your application.<br>
+    Secondary colors can be used to emphasize or highlight important information.<br>
+    Using colors from the Material Design palette is optional.
+  </div>
+</div>
+
+<h2>Color Palette</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    The color palette comprises four base colors and four contrast colors that harmonize with each other.<br>
+    This themes ensures consistent styling on different types of applications.<br>
+    The spectrum can be filled by increasing and decreasing saturation.
+  </div>
+  <div class="z-cell z-cell--6-col">
+    <div>
+      <div class="color-palette">
+        <div class="color-palette--swatch z-color--red" data-color="red"></div>
+        Light&nbsp;Crimson<br>(<span class="z-text--code info-red"></span>)
+      </div>
+      <div class="color-palette">
+        <div class="color-palette--swatch z-color--yellow" data-color="yellow"></div>
+        Amber<br>(<span class="z-text--code info-yellow"></span>)
+      </div>
+      <div class="color-palette">
+        <div class="color-palette--swatch z-color--green" data-color="green"></div>
+        Lawn&nbsp;Green<br>(<span class="z-text--code info-green"></span>)
+      </div>
+      <div class="color-palette">
+        <div class="color-palette--swatch z-color--blue" data-color="blue"></div>
+        Sea&nbsp;Blue<br>(<span class="z-text--code info-blue"></span>)
+      </div>
+    </div><div>
+      <div class="color-palette">
+        <div class="color-palette--swatch z-color--primary" data-color="primary"></div>
+        Primary<br>(<span class="z-text--code info-primary"></span>)
+      </div>
+      <div class="color-palette">
+        <div class="color-palette--swatch z-color--white" data-color="white"></div>
+        Snow&nbsp;White<br>(<span class="z-text--code info-white"></span>)
+      </div>
+      <div class="color-palette">
+        <div class="color-palette--swatch z-color--grey" data-color="grey"></div>
+        Anthracite<br>(<span class="z-text--code info-grey"></span>)
+      </div>
+      <div class="color-palette">
+        <div class="color-palette--swatch z-color--black" data-color="black"></div>
+        Black<br>(<span class="z-text--code info-black"></span>)
+      </div>
+    </div>
+  </div>
+</div>
+
+<h2>Legibility</h2>
+<h3>Text on Bright Background</h3>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    Text that appears on bright background should be legible.<br>
+    The colors mustn't have too much brightness while being as colorful and clean as possible.
+  </div>
+  <div class="z-cell z-cell--6-col">
+    <div>
+    <div class="color-palette color-palette--small z-color--dark">
+      <div class="color-palette--swatch z-color-text--red z-text--display-1">
+        TEXT<br>TEXT
+      </div>
+    </div>
+    <div class="color-palette color-palette--small z-color--dark">
+      <div class="color-palette--swatch z-color-text--yellow z-text--display-1">
+        TEXT<br>TEXT
+      </div>
+    </div>
+    <div class="color-palette color-palette--small z-color--dark">
+      <div class="color-palette--swatch z-color-text--green z-text--display-1">
+        TEXT<br>TEXT
+      </div>
+    </div>
+    <div class="color-palette color-palette--small z-color--dark">
+      <div class="color-palette--swatch z-color-text--blue z-text--display-1">
+        TEXT<br>TEXT
+      </div>
+    </div>
+    </div><div>
+    <div class="color-palette color-palette--small z-color--bright">
+      <div class="color-palette--swatch z-color-text--red z-text--display-1">
+        TEXT<br>TEXT
+      </div>
+    </div>
+    <div class="color-palette color-palette--small z-color--bright">
+      <div class="color-palette--swatch z-color-text--yellow z-text--display-1">
+        TEXT<br>TEXT
+      </div>
+    </div>
+    <div class="color-palette color-palette--small z-color--bright">
+      <div class="color-palette--swatch z-color-text--green z-text--display-1">
+        TEXT<br>TEXT
+      </div>
+    </div>
+    <div class="color-palette color-palette--small z-color--bright">
+      <div class="color-palette--swatch z-color-text--blue z-text--display-1">
+        TEXT<br>TEXT
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+<h3>Text on Colored Background</h3>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    It is legit to apply the color palette to the background.<br>
+    Therefore, it is important that the hues have enough contrast.
+  </div>
+  <div class="z-cell z-cell--6-col">
+    <div>
+      <div class="color-palette color-palette--small z-color--dark">
+        <div class="color-palette--swatch z-color--red z-text--display-1">
+          TEXT<br>TEXT
+        </div>
+      </div>
+      <div class="color-palette color-palette--small z-color--dark">
+        <div class="color-palette--swatch z-color--yellow z-text--display-1">
+          TEXT<br>TEXT
+        </div>
+      </div>
+      <div class="color-palette color-palette--small z-color--dark">
+        <div class="color-palette--swatch z-color--green z-text--display-1">
+          TEXT<br>TEXT
+        </div>
+      </div>
+      <div class="color-palette color-palette--small z-color--dark">
+        <div class="color-palette--swatch z-color--blue z-text--display-1">
+          TEXT<br>TEXT
+        </div>
+      </div>
+    </div><div>
+      <div class="color-palette color-palette--small z-color--bright">
+        <div class="color-palette--swatch z-color--red z-text--display-1">
+          TEXT<br>TEXT
+        </div>
+      </div>
+      <div class="color-palette color-palette--small z-color--bright">
+        <div class="color-palette--swatch z-color--yellow z-text--display-1">
+          TEXT<br>TEXT
+        </div>
+      </div>
+      <div class="color-palette color-palette--small z-color--bright">
+        <div class="color-palette--swatch z-color--green z-text--display-1">
+          TEXT<br>TEXT
+        </div>
+      </div>
+      <div class="color-palette color-palette--small z-color--bright">
+        <div class="color-palette--swatch z-color--blue z-text--display-1">
+          TEXT<br>TEXT
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>Text on Dark Background</h3>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    Text that appears on dark background should be legible.<br>
+    The right balance on saturation and brightness is mandatory in order to display silky matt text.
+  </div>
+  <div class="z-cell z-cell--6-col">
+    <div>
+    <div class="color-palette color-palette--small z-color--dark">
+      <div class="color-palette--swatch z-color--black z-color-text--red z-text--display-1">
+        TEXT<br>TEXT
+      </div>
+    </div>
+    <div class="color-palette color-palette--small z-color--dark">
+      <div class="color-palette--swatch z-color--black z-color-text--yellow z-text--display-1">
+        TEXT<br>TEXT
+      </div>
+    </div>
+    <div class="color-palette color-palette--small z-color--dark">
+      <div class="color-palette--swatch z-color--black z-color-text--green z-text--display-1">
+        TEXT<br>TEXT
+      </div>
+    </div>
+    <div class="color-palette color-palette--small z-color--dark">
+      <div class="color-palette--swatch z-color--black z-color-text--blue z-text--display-1">
+        TEXT<br>TEXT
+      </div>
+    </div>
+    </div><div>
+    <div class="color-palette color-palette--small z-color--bright">
+      <div class="color-palette--swatch z-color--black z-color-text--red z-text--display-1">
+        TEXT<br>TEXT
+      </div>
+    </div>
+    <div class="color-palette color-palette--small z-color--bright">
+      <div class="color-palette--swatch z-color--black z-color-text--yellow z-text--display-1">
+        TEXT<br>TEXT
+      </div>
+    </div>
+    <div class="color-palette color-palette--small z-color--bright">
+      <div class="color-palette--swatch z-color--black z-color-text--green z-text--display-1">
+        TEXT<br>TEXT
+      </div>
+    </div>
+    <div class="color-palette color-palette--small z-color--bright">
+      <div class="color-palette--swatch z-color--black z-color-text--blue z-text--display-1">
+        TEXT<br>TEXT
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+<script>
+  function hex(x) {
+    return ("0" + parseInt(x).toString(16)).slice(-2);
+  }
+
+  function rgb2hex(rgb) {
+    if (/^#[0-9A-F]{6}$/i.test(rgb)) {
+      return rgb;
+    }
+
+    rgb = rgb.match(/^rgb\((\d+),\s*(\d+),\s*(\d+)\)$/);
+    return "#" + hex(rgb[1]) + hex(rgb[2]) + hex(rgb[3]);
+  }
+
+  window.addEventListener('load', function (event) {
+    var list = document.getElementsByClassName('color-palette--swatch');
+    for (var i = 0; i < 9-1; i++) {
+      var palette = list[i];
+      var color = palette.getAttribute('data-color');
+      var infoLabel = z.dom.getElementByClass('info-' + color);
+      infoLabel.innerText += rgb2hex(getComputedStyle(palette).backgroundColor);
+    }
+  });
+</script>
+</section>
+<section id="typography">
+<div class="z-text--headline">
+  Lato is the standard typeface. Source Sans Pro is used for emphasizing accents in headlines.
+</div>
+
+<h2>Styles</h2>
+Type sizes are specified with rem (relative to font-size of the root element) to ensure consistent scaling.<br>
+These sizes and styles were defined provide both a clean and lightweight appearance as well as readability.
+
+<h3>Typeface</h3>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    The following variants can be used to emphasize text:
+    <ul>
+      <li>Light (300)</li>
+      <li>Regular (400)</li>
+      <li>Bold (700)</li>
+    </ul>
+  </div>
+  <div class="z-cell z-cell--6-col z-text--display-1">
+    <div style="font-weight: 300">
+    ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+    abcdefghijklmnopqrstuvwxyz<br>
+    0123456789
+    </div>
+    <div style="font-weight: 400">
+    ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+    abcdefghijklmnopqrstuvwxyz<br>
+    0123456789
+    </div>
+    <div style="font-weight: 700">
+    ABCDEFGHIJKLMNOPQRSTUVWXYZ<br>
+    abcdefghijklmnopqrstuvwxyz<br>
+    0123456789
+    </div>
+  </div>
+</div>
+
+<h3>Styles</h3>
+<div class="z-grid" style="align-items: baseline;">
+  <div class="z-cell z-cell--12-col">
+    The basic set of styles are based on a typographic scale of 12, 14, 16 and 20.
+  </div>
+  <div id="style-info--display-4" class="z-cell z-cell--6-col"></div>
+  <div id="style-area--display-4" class="z-cell z-cell--6-col z-text--display-4" style="min-height: 2rem;">display-4</div>
+  <div id="style-info--display-3" class="z-cell z-cell--6-col"></div>
+  <div id="style-area--display-3" class="z-cell z-cell--6-col z-text--display-3" style="min-height: 2rem;">display-3</div>
+  <div id="style-info--display-2" class="z-cell z-cell--6-col"></div>
+  <div id="style-area--display-2" class="z-cell z-cell--6-col z-text--display-2" style="min-height: 2rem;">display-2</div>
+  <div id="style-info--display-1" class="z-cell z-cell--6-col"></div>
+  <div id="style-area--display-1" class="z-cell z-cell--6-col z-text--display-1" style="min-height: 2rem;">display-1</div>
+  <div id="style-info--headline" class="z-cell z-cell--6-col"></div>
+  <div id="style-area--headline" class="z-cell z-cell--6-col z-text--headline" style="min-height: 2rem;">headline</div>
+  <div id="style-info--title" class="z-cell z-cell--6-col"></div>
+  <div id="style-area--title" class="z-cell z-cell--6-col z-text--title" style="min-height: 2rem;">title</div>
+  <div id="style-info--subheading" class="z-cell z-cell--6-col"></div>
+  <div id="style-area--subheading" class="z-cell z-cell--6-col z-text--subheading" style="min-height: 2rem;">subheading</div>
+  <div id="style-info--body-2" class="z-cell z-cell--6-col"></div>
+  <div id="style-area--body-2" class="z-cell z-cell--6-col z-text--body-2" style="min-height: 2rem;">body-2</div>
+  <div id="style-info--body-1" class="z-cell z-cell--6-col"></div>
+  <div id="style-area--body-1" class="z-cell z-cell--6-col z-text--body-1" style="min-height: 2rem;">body-1</div>
+  <div id="style-info--caption" class="z-cell z-cell--6-col"></div>
+  <div id="style-area--caption" class="z-cell z-cell--6-col z-text--caption" style="min-height: 2rem;">caption</div>
+  <div id="style-info--button" class="z-cell z-cell--6-col"></div>
+  <div id="style-area--button" class="z-cell z-cell--6-col z-text--button" style="min-height: 2rem;">button</div>
+</div>
+
+<h3>Example</h3>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">&nbsp;</div>
+  <div class="z-cell z-cell--6-col">
+    <div class="z-text--title">The quick brown fox jumps over a lazy dog.</div>
+    How razorback jumping frogs can level six piqued gymnasts.
+    How quickly daft jumping zebras vex.
+    <div class="z-text--title">Pack my box with five dozen liquor jugs.</div>
+    We promptly judged antique ivory buckles for the next prize.
+    Sixty zippers were quickly picked from the woven jute bag.
+    Crazy Fredrick bought many very exquisite opal jewels.
+    Jump by vow of quick, lazy strength in Oxford.
+    Sphinx of black quartz: judge my vow.
+    Quick zephyrs blow, vexing daft Jim.
+    Waltz, nymph, for quick jigs vex bud.
+  </div>
+</div>
+
+<script type="application/javascript">
+  window.addEventListener('load', function (event) {
+    var styles='display-4 display-3 display-2 display-1 headline title subheading body-2 body-1 caption button'.split(' ');
+    for (var i = 0; i < styles.length; i++) {
+      var style = styles[i];
+      var styleInfo = z.dom.getElementById('style-info--' + style);
+      var styleArea = z.dom.getElementById('style-area--' + style);
+      var computedStyle = window.getComputedStyle(styleArea);
+      var fontFamily = computedStyle.fontFamily.replace(/,.+/, '').replace(/"/g, '');
+      styleInfo.innerText = fontFamily + ' (' + computedStyle.fontWeight + ', ' + computedStyle.fontSize + ')';
+    }
+  });
+</script>
+</section>
+  </section>
+  <section id="components" hidden>
+<section id="bottom-navigation">
+<div class="z-text--headline">
+  Bottom navigation bars display the surrounding views and enable easy navigation.
+</div>
+
+<h2>Layout</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    The bottom navigation bar is split into two panes.<br>
+    By clicking on the left area, the browser navigates to the previous view.<br>
+    If the right area is clicked, a navigation to the next view is performed.
+  </div>
+  <div class="z-cell z-cell--6-col">
+    <div class="z-color--white">
+      <div id="navBarDemo" style="width: 100%"></div>
+    </div>
+  </div>
+</div>
+<script>
+  window.addEventListener('load', function (event) {
+    var navBar = new z.components.NavBar('Previous', 'Next');
+    navBar.render('navBarDemo');
+    navBar.update(
+        {'text': 'Navigate Backward', 'link': '#'},
+        {'text': 'Navigate Forward', 'link': '#'});
+
+    z.dom.getElementById('navBarDemo').addEventListener('click', function (event) {
+      event.preventDefault();
+      event.stopPropagation();
+    });
+  });
+</script>
+</section>
+<section id="buttons">
+<div class="z-text--headline">
+  Buttons trigger actions that will happen when the user touches them.
+</div>
+
+<h2>Button Types</h2>
+<div class="z-grid" style="align-items: flex-end;">
+  <div class="z-cell z-cell--6-col">
+    <h3>Link</h3> A typical link without additional spacing that can be embedded into text.<br>
+  </div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <div class="z-cell z-cell--3-col z-text--center"><a class="z-link">Click me</a></div>
+  </div>
+  <div class="z-cell z-cell--6-col">
+    <h3>Flat Button</h3> A rectangular button made embedded into its surrounding container.<br>
+  </div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-link">Click me</button></div>
+  </div>
+  <div class="z-cell z-cell--6-col">
+    <h3>Raised Button</h3> A rectangular button that visually stands out of its surrounding container.<br>
+  </div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-button">Click me</button></div>
+  </div>
+  <div class="z-cell z-cell--6-col">
+    <h3>Primary Button</h3> A raised button with additional visuals indicating the default action.<br>
+    In every container, there should be at most one primary button.
+  </div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-button z-button--primary">Click me</button></div>
+  </div>
+</div>
+
+<h2>Icons</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col" style="height: 4rem">
+    Flat Buttons and Raised Buttons may have icons.
+  </div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-link"><span class="lnr lnr-magnifier"></span> Search</button></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-link"><span class="lnr lnr-magnifier"></span> Search</button></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-button"><span class="lnr lnr-magnifier"></span> Search</button></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-button z-button--primary"><span class="lnr lnr-magnifier"></span> Search</button></div>
+  </div>
+  <div class="z-cell z-cell--6-col" style="height: 4rem">
+    The text can be omitted if the action can be derived from the icon.<br>
+    Additionally, the size can be increased by 1.25x through 7x.
+  </div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-link z-link--icon"><span class="lnr lnr-magnifier z-text--display-1"></span></button></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-link z-link--icon"><span class="lnr lnr-magnifier z-text--display-2"></span></button></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-link z-link--icon"><span class="lnr lnr-magnifier z-text--display-3"></span></button></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-link z-link--icon"><span class="lnr lnr-magnifier z-text--display-4"></span></button></div>
+  </div>
+</div>
+
+
+<h2>Behavior</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col z-text--body-2" style="height: 4rem">&nbsp;</div>
+  <div class="z-cell z-cell--6-col z-grid z-text--body-2">
+    <div class="z-cell z-cell--3-col z-text--center">Link</div>
+    <div class="z-cell z-cell--3-col z-text--center">Flat Button</div>
+    <div class="z-cell z-cell--3-col z-text--center">Raised Button</div>
+    <div class="z-cell z-cell--3-col z-text--center">Primary Button</div>
+  </div>
+
+  <div class="z-cell z-cell--6-col z-text--body-2" style="height: 4rem">Normal</div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <div class="z-cell z-cell--3-col z-text--center"><a href="#" class="z-link">Click me</a></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-link">Click me</button></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-button">Click me</button></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-button z-button--primary">Click me</button></div>
+  </div>
+
+  <div class="z-cell z-cell--6-col z-text--body-2" style="height: 4rem">Focused</div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <div class="z-cell z-cell--3-col z-text--center"><a href="#" class="z-link z--focused">Click me</a></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-link z--focused">Click me</button></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-button z--focused">Click me</button></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-button z-button--primary z--focused">Click me</button></div>
+  </div>
+
+  <div class="z-cell z-cell--6-col z-text--body-2" style="height: 4rem">Active</div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <div class="z-cell z-cell--3-col z-text--center"><a href="#" class="z-link z--active">Click me</a></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-link z--active">Click me</button></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-button z--active">Click me</button></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-button z-button--primary z--active">Click me</button></div>
+  </div>
+
+  <div class="z-cell z-cell--6-col z-text--body-2" style="height: 4rem">Disabled</div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <div class="z-cell z-cell--3-col z-text--center"><a href="#" class="z-link z--disabled">Click me</a></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-link" disabled>Click me</button></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-button" disabled>Click me</button></div>
+    <div class="z-cell z-cell--3-col z-text--center"><button class="z-button z-button--primary" disabled>Click me</button></div>
+  </div>
+
+</div>
+</section>
+<section id="cards">
+<div class="z-text--headline">A card is a defined layer that contains detailed contextual information.</div>
+
+<h2>Layout</h2>
+<h3>Basic</h3>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    Cards are vertical containers consisting of header, body and footer.<br>
+    The header can be colored individually and describes the context.<br>
+    The body contains a detailed message or an image.<br>
+    The footer may contain buttons for triggering context-specific actions.
+  </div>
+  <div class="z-cell z-cell--6-col">
+    <div class="z-card">
+      <div class="z-card--content">
+        <div class="z-card--header z-text--headline z-color--blue z-color-text--white">Good News</div>
+        <div class="z-card--body">
+          Card Layout is available in zensational.
+        </div>
+        <div class="z-card--footer">
+          <button class="z-button">Learn more</button>&nbsp;<button class="z-button">Share</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<h3>Image</h3>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    Background images can be used for a more vivid design.
+  </div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <div class="z-cell z-cell--4-col">
+      <div class="z-card">
+        <div class="z-card--content card--image card--trail">
+          <div class="z-card--header z-text--headline z-color-text--white">Nothing's there!</div>
+          <div class="z-card--footer">
+            <button class="z-button">Discard</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="z-cell z-cell--4-col">
+      <div class="z-card">
+        <div class="z-card--content card--image">
+          <div class="z-card--header z-text--headline card--trail z-color-text--white">Nothing's there!</div>
+          <div class="z-card--footer">
+            <button class="z-button">Discard</button>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="z-cell z-cell--4-col">
+      <div class="z-card">
+        <div class="z-card--content card--image">
+          <div class="z-card--header z-text--headline">Nothing's there!</div>
+          <div class="z-card--body card--aurora"></div>
+          <div class="z-card--footer">
+            <button class="z-link z-link--icon">Discard</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="z-cell z-cell--6-col"></div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <div class="z-cell z-cell--4-col z-text--center">image in card (no body)</div>
+    <div class="z-cell z-cell--4-col z-text--center">image in header (no body)</div>
+    <div class="z-cell z-cell--4-col z-text--center">image in body</div>
+  </div>
+</div>
+
+<h2>Card Collection</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    Cards are a convenient layer for displaying different elements.<br>
+    For example, they can be used to display photo galleries.<br>
+  </div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <div class="z-card z-cell z-cell--3-col z-card--content">
+      <div class="z-card--header z-text--headline">Word of the Day</div>
+      <div class="z-card--body">
+        <div class="z-text--title">signanz</div>
+        <div class="z-text--body-1">
+          Signanz is a term used to add unnecessary complexity to otherwise simple statements or questions
+          in order to make the author and his work look more sophisticated regardless of his or its actual signanz.
+        </div>
+      </div>
+    </div>
+    <div class="z-card z-cell z-cell--3-col z-card--content">
+      <div class="z-card--header z-text--headline">Weather Forecast</div>
+      <div class="z-card--body">
+        Either it will be sunny or not.
+      </div>
+      <div class="z-card--footer">
+        <button class="z-button">I know</button>
+      </div>
+    </div>
+    <div class="z-card z-cell z-cell--6-col z-card--content">
+      <div class="z-card--body">
+        3.141592653589793238462643383279502884197169399375105820974944
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<section id="data-tables">
+<div class="z-text--headline">Data tables display rows of various data.</div>
+
+<h2>Layout</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    A data table contains a header row, which displays the column names.<br>
+    Below, there is an arbitrary number of rows containing raw data.<br>
+    Rows can contain checkboxes if the rows are supposed to be selectable.<br>
+    Furthermore, icons and other visualizations may be used.
+  </div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <table class="z-table">
+      <thead>
+        <tr><th>&nbsp;</th><th>Month</th><th class="z-table--numeric">Earnings</th><th class="z-table--icon">Bookings</th></tr>
+      </thead>
+      <tbody>
+      <tr>
+        <td><input type="checkbox"></td>
+        <td>2018-01</td>
+        <td class="z-table--numeric">300k &dollar;</td>
+        <td class="z-table--icon"><a href="#" class="z-link z-link--icon"><span class="lnr lnr-pencil"></span></a></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox"></td>
+        <td>2018-02</td>
+        <td class="z-table--numeric dark z-color-text--red">-80k &dollar;</td>
+        <td class="z-table--icon"><a href="#" class="z-link z-link--icon"><span class="lnr lnr-pencil"></span></a></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox"></td>
+        <td>2018-03</td>
+        <td class="z-table--numeric">50k &dollar;</td>
+        <td class="z-table--icon"><a href="#" class="z-link z-link--icon"><span class="lnr lnr-pencil"></span></a></td>
+      </tr>
+      <tr>
+        <td><input type="checkbox"></td>
+        <td>2018-04</td>
+        <td class="z-table--numeric">2400k &dollar;</td>
+        <td class="z-table--icon"><a href="#" class="z-link z-link--icon"><span class="lnr lnr-pencil"></span></a></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<h2>Interaction</h2>
+<h3>Hover</h3>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    If a row is hovered by the user, the rows background color changes.<br>
+    At most one row can be highlighted at one point in time.
+  </div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <table class="z-table z-table--numeric z-table--hover" style="width: 40%">
+      <thead>
+      <tr><th>ID</th><th class="z-table--text">Name</th><th>Min</th><th>Max</th><th>Sum</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td class="z-table--text">Amsterdam</td><td>0</td><td>100</td><td>100</td></tr>
+        <tr><td>2</td><td class="z-table--text">Berlin</td><td>27</td><td>85</td><td>110</td></tr>
+        <tr><td>3</td><td class="z-table--text">Cairo</td><td>14</td><td>64</td><td>78</td></tr>
+      </tbody>
+    </table>
+    <table class="z-table z-table--numeric z-table--hover z-table--striped" style="width: 40%">
+      <thead>
+        <tr><th>ID</th><th class="z-table--text">Name</th><th>Min</th><th>Max</th><th>Sum</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td class="z-table--text">Amsterdam</td><td>0</td><td>100</td><td>100</td></tr>
+        <tr><td>2</td><td class="z-table--text">Berlin</td><td>27</td><td>85</td><td>110</td></tr>
+        <tr><td>3</td><td class="z-table--text">Cairo</td><td>14</td><td>64</td><td>78</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<h3>Selection</h3>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    If a table supports row selection, selected rows are highlighted.<br>
+    Selected rows permanently change their background color.<br>
+    Row selection can be done either by:
+    <ul>
+      <li>clicking on desired row or
+      <li>selecting the designed checkbox (if provided).
+    </ul>
+  </div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <table class="z-table z-table--numeric z-table--hover" style="width: 40%">
+      <thead>
+      <tr><th>ID</th><th>Name</th><th>Min</th><th>Max</th><th>Sum</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td class="z-table--text">Amsterdam</td><td>0</td><td>100</td><td>100</td></tr>
+        <tr><td>2</td><td class="z-table--text">Berlin</td><td>27</td><td>85</td><td>110</td></tr>
+        <tr><td>3</td><td class="z-table--text">Cairo</td><td>14</td><td>64</td><td>78</td></tr>
+      </tbody>
+    </table>
+    <table class="z-table z-table--numeric z-table--hover z-table--striped" style="width: 40%">
+      <thead>
+        <tr><th>ID</th><th>Name</th><th>Min</th><th>Max</th><th>Sum</th></tr>
+      </thead>
+      <tbody>
+        <tr class="z--active"><td>1</td><td class="z-table--text">Amsterdam</td><td>0</td><td>100</td><td>100</td></tr>
+        <tr class="z--active"><td>2</td><td class="z-table--text">Berlin</td><td>27</td><td>85</td><td>110</td></tr>
+        <tr><td>3</td><td class="z-table--text">Cairo</td><td>14</td><td>64</td><td>78</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</section>
+<section id="grids">
+<div class="z-text--headline">The Grid is a layout component for different screen sizes.</div>
+
+<h2>Layout</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    A grid always has 12 columns which dynamically resize on tablet size and phone size, respectively.<br>
+    Cells are laid out sequentially in a row, in the defined order.<br>
+    If a cell doesn't fit in the row, it flows into the following line.<br>
+    If a row contains cells which sum up to less than 12, the cells dynamically expand.
+  </div>
+  <div class="z-cell z-cell--6-col">
+    <div class="z-grid z-color--bright">
+      <div class="z-cell z-cell--1-col z-color--yellow">1</div>
+      <div class="z-cell z-cell--11-col z-color--green">11</div>
+      <div class="z-cell z-cell--2-col z-color--yellow">2</div>
+      <div class="z-cell z-cell--10-col z-color--green">10</div>
+      <div class="z-cell z-cell--3-col z-color--yellow">3</div>
+      <div class="z-cell z-cell--9-col z-color--green">9</div>
+      <div class="z-cell z-cell--4-col z-color--yellow">4</div>
+      <div class="z-cell z-cell--8-col z-color--green">8</div>
+      <div class="z-cell z-cell--5-col z-color--yellow">5</div>
+      <div class="z-cell z-cell--7-col z-color--green">7</div>
+      <div class="z-cell z-cell--6-col z-color--yellow">6</div>
+      <div class="z-cell z-cell--6-col z-color--green">6</div>
+      <div class="z-cell z-cell--7-col z-color--yellow">7</div>
+      <div class="z-cell z-cell--5-col z-color--green">5</div>
+      <div class="z-cell z-cell--8-col z-color--yellow">8</div>
+      <div class="z-cell z-cell--4-col z-color--green">4</div>
+      <div class="z-cell z-cell--9-col z-color--yellow">9</div>
+      <div class="z-cell z-cell--3-col z-color--green">3</div>
+      <div class="z-cell z-cell--10-col z-color--yellow">10</div>
+      <div class="z-cell z-cell--2-col z-color--green">2</div>
+      <div class="z-cell z-cell--11-col z-color--yellow">11</div>
+      <div class="z-cell z-cell--1-col z-color--green">1</div>
+      <div class="z-cell z-cell--12-col z-color--yellow">12</div>
+      <div class="z-cell z-cell--0-col z-color--green">0</div>
+      <div class="z-cell z-cell--12-col"></div>
+      <div class="z-cell z-cell--6-col z-color--red">6</div>
+      <div class="z-cell z-cell--5-col z-color--red">5</div>
+      <div class="z-cell z-cell--4-col z-color--red">4</div>
+    </div>
+  </div>
+</div>
+</section>
+<section id="lists">
+<div class="z-text--headline">Lists present multiple rectangular items vertically aligned.</div>
+
+<h2>Layout</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    For collections of ordered items with compact content, lists shall be used.<br>
+    Each row contains a single cell with text and or images.
+  </div>
+  <div class="z-cell z-cell--3-col">
+    <div class="z-list">
+      <div class="z-list--item">
+        <div class="z-list--item-body">
+          <div class="z-text--body-2">Jane Doe</div>
+          <div class="z-text--body-1">jane.doe@work.com</div>
+        </div>
+      </div>
+      <div class="z-list--item">
+        <div class="z-list--item-body">
+          <div class="z-text--body-2">John Doe</div>
+          <div class="z-text--body-1">john.doe@abc.xyz</div>
+        </div>
+      </div>
+      <div class="z-list--item">
+        <div class="z-list--item-body">
+          <div class="z-text--body-2">John Smith</div>
+          <div class="z-text--body-1">john@smith.co.uk</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="z-cell z-cell--3-col">
+    <div class="z-list">
+      <div class="z-list--item">
+        <div class="z-list--item-icon"><span class="z-color-text--primary z-text--display-1">JD</span></div>
+        <div class="z-list--item-body">
+          <div class="z-text--body-2">Jane Doe</div>
+          <div class="z-text--body-1">jane.doe@work.com</div>
+        </div>
+      </div>
+      <div class="z-list--item">
+        <div class="z-list--item-icon"><span class="lnr lnr-user z-color-text--red z-text--display-1"></span></div>
+        <div class="z-list--item-body">
+          <div class="z-text--body-2">John Doe</div>
+          <div class="z-text--body-1">john.doe@abc.xyz</div>
+        </div>
+      </div>
+      <div class="z-list--item">
+        <div class="z-list--item-icon"><div style="background: #000000 url('images/89b39989a1edb761865c1f39976567ee.jpg') no-repeat center; background-size: 100%; width: 3rem; height: 3rem;"></div></div>
+        <div class="z-list--item-body">
+          <div class="z-text--body-2">John Smith</div>
+          <div class="z-text--body-1">john@smith.co.uk</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<section id="selection-controls">
+<div class="z-text--headline">
+  Selection controls allow the user to select one or more options.
+</div>
+
+<h2>Types of Selection Controls</h2>
+<h3>Checkboxes</h3>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    Checkboxes allow the selection of zero or more options from a given set.
+  </div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <div class="z-cell z-cell--6-col"><label class="z-text--label"><input type="checkbox" class="z-checkbox">Unchecked</label></div>
+    <div class="z-cell z-cell--6-col"><label class="z-text--label"><input type="checkbox" class="z-checkbox" checked>Checked</label></div>
+    <div class="z-cell z-cell--6-col"><label class="z-text--label"><input type="checkbox" class="z-checkbox" disabled>Disabled</label></div>
+    <div class="z-cell z-cell--6-col"><label class="z-text--label"><input type="checkbox" class="z-checkbox" checked disabled>Disabled</label></div>
+  </div>
+</div>
+<h3>Radio Buttons</h3>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    Radio buttons allow the selection of exactly one option from a given set.
+  </div>
+  <div class="z-cell z-cell--6-col z-grid">
+    <div class="z-cell z-cell--6-col"><label class="z-text--label"><input type="radio" class="z-radio" name="radio">Unchecked</label></div>
+    <div class="z-cell z-cell--6-col"><label class="z-text--label"><input type="radio" class="z-radio" name="radio" checked>Checked</label></div>
+    <div class="z-cell z-cell--6-col"><label class="z-text--label"><input type="radio" class="z-radio" disabled>Disabled</label></div>
+    <div class="z-cell z-cell--6-col"><label class="z-text--label"><input type="radio" class="z-radio" checked disabled>Disabled</label></div>
+  </div>
+</div>
+</section>
+<section id="text-fields">
+<div class="z-text--headline">Text fields allow users to input, edit, and select text.</div>
+
+<h2>Layout</h2>
+Text fields contain the following elements:
+
+<h3>Label</h3>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    Labels display the name and semantics of the text field.<br>
+    Every text field should have a label.
+  </div>
+  <div class="z-cell z-cell--3-col">
+    <label for="label">Label</label>
+    <input type="text" value="Input" id="label">
+  </div>
+  <div class="z-cell z-cell--3-col">
+    <label>Label
+      <input type="text" class="z--focused" value="Input">
+    </label>
+  </div>
+</div>
+
+<h3>Placeholder</h3>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    Empty input fields may contain placeholder text.<br>
+    The text can contain an example, such as a phone number.
+  </div>
+  <div class="z-cell z-cell--3-col">
+    <label for="placeholder">Label</label>
+    <input type="text" placeholder="Placeholder" id="placeholder">
+  </div>
+  <div class="z-cell z-cell--3-col">&nbsp;</div>
+</div>
+
+<h3>Helper Text</h3>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    Additional information may be displayed below a fields.<br>
+    It should be visible either persistently or only on focus.
+  </div>
+  <div class="z-cell z-cell--3-col">
+    <label for="helper">Label</label>
+    <input type="text" placeholder="Placeholder" id="helper">
+    <div class="helper">Must contain only numbers</div>
+  </div>
+  <div class="z-cell z-cell--3-col">
+    <label>Label
+      <input type="password" value="secret">
+    </label>
+    <div class="helper z--focused">At least 8 characters</div>
+  </div>
+</div>
+
+<h3>Error Message</h3>
+<div class="z-grid">
+  <div class="z-cell z-cell--6-col">
+    Upon validation errors, text fields can display an error message below the field.<br>
+    This message should contain instructions on how to fix the error.<br>
+    Additionally, an icon or the term &quot;Error&quot; should be used to increase visibility.<br>
+    The error message is displayed permanently and replaces the helper text.
+  </div>
+  <div class="z-cell z-cell--3-col">
+    <div class="z-color-text--red">
+      <label for="helper">Label</label>
+      <input type="text" placeholder="Placeholder" id="error">
+      <div class="helper">Error: Must contain only numbers</div>
+    </div>
+  </div>
+  <div class="z-cell z-cell--3-col">
+    <div class="z-color-text--red">
+      <label>Label
+        <input type="password" value="secret">
+      </label>
+      <div class="helper"><span class="lnr lnr-warning"></span> Passwords do not match</div>
+    </div>
+  </div>
+</div>
+</section>
+  </section>
+  <section id="templates" hidden>
+<div class="z-text--headline">
+  A template is a reusable fragment of text containing directives.
+</div>
+
+<style>
+  .z-cell {
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+  }
+
+  .cmd {
+    color: #ff6666;
+  }
+
+  .cmt {
+    color: #aabb22;
+  }
+
+  .str {
+    color: #006699;
+  }
+
+  .var {
+    color: #eeaa55;
+  }
+</style>
+
+<h2>Overview</h2>
+zensational has builtin directives for the following use cases:
+<ul>
+  <li><a class="z-link z-link--icon" href="#templates_var">Variables</a>
+  <li><a class="z-link z-link--icon" href="#templates_str-basics">Strings - Basics</a>
+  <li><a class="z-link z-link--icon" href="#templates_str-case">Strings - Case Format</a>
+  <li><a class="z-link z-link--icon" href="#templates_str-substr">Strings - Substring</a>
+  <li><a class="z-link z-link--icon" href="#templates_str-repl">Strings - Replacement</a>
+  <li><a class="z-link z-link--icon" href="#templates_call">Call External Program</a>
+  <li><a class="z-link z-link--icon" href="#templates_arithm">Integer Arithmetic</a>
+  <li><a class="z-link z-link--icon" href="#templates_cond">Conditions</a>
+  <li><a class="z-link z-link--icon" href="#templates_loop">Loops</a>
+  <li><a class="z-link z-link--icon" href="#templates_import">Imports</a>
+</ul>
+
+<div id="templates_var" class="bookmark"></div>
+<h2>Variables</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--2-col">Variable</div>
+  <div class="z-text--code z-cell z-cell--5-col"><span class="cmd">&num;var</span> CLASSES=<span class="str">"z-text--code z-cell z-cell--5-col"</span></div>
+  <div class="z-text--code z-cell z-cell--5-col cmt"># sets CLASSES to "z-text--code z-cell z-cell--5-col"
+  </div>
+  <div class="z-cell z-cell--2-col">Call other program</div>
+  <div class="z-text--code z-cell z-cell--5-col"><span class="cmd">#var</span> DATE=<span class="str">"$(date +%s.%N)"</span></div>
+  <div class="z-text--code z-cell z-cell--5-col cmt">
+    &num; sets DATE to "1522583821.421161400"
+  </div>
+  <div class="z-cell z-cell--2-col">String Interpolation</div>
+  <div class="z-text--code z-cell z-cell--5-col"><span class="cmd">&num;var</span> path=<span class="str">"<span class="var">${HOME}</span> sweet home"</span>
+  </div>
+  <div class="z-text--code z-cell z-cell--5-col cmt"># sets path to "/home/user sweet home"
+  </div>
+  <div class="z-cell z-cell--2-col">Constant</div>
+  <div class="z-text--code z-cell z-cell--5-col">
+    <span class="cmd">&num;val</span> CSS=<span class="str">"CLASSES"</span><br>
+    <span class="cmd">&num;const</span> CSS=<span class="str">"OVERRIDE"</span></div>
+  <div class="z-text--code z-cell z-cell--5-col">
+    <div class="cmt"># sets CSS To "CLASSES"</div>
+    <div class="z-color-text--red"># component.zt.sh: line 69: CSS: readonly variable</div>
+  </div>
+  <div class="z-cell z-cell--2-col">Resolve variable by name</div>
+  <div class="z-text--code z-cell z-cell--5-col var">${!CSS}<br>(${CSS})</div>
+  <div class="z-text--code z-cell z-cell--5-col">z-text--code z-cell z-cell--5-col<br>(CLASSES)</div>
+</div>
+
+<div id="templates_str-basics" class="bookmark"></div>
+<h2>Strings - Basics</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--2-col">Length</div>
+  <div class="z-text--code z-cell z-cell--5-col var">${#path}</div>
+  <div class="z-text--code z-cell z-cell--5-col">21</div>
+</div>
+
+<div id="templates_str-case" class="bookmark"></div>
+<h2>Strings - Case Format</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--2-col">Upper Case</div>
+  <div class="z-text--code z-cell z-cell--5-col var">${CLASSES^^}</div>
+  <div class="z-text--code z-cell z-cell--5-col">Z-TEXT--CODE Z-CELL Z-CELL--5-COL</div>
+  <div class="z-cell z-cell--2-col">Lower Case</div>
+  <div class="z-text--code z-cell z-cell--5-col var">${CLASSES,,}</div>
+  <div class="z-text--code z-cell z-cell--5-col">z-text--code z-cell z-cell--5-col</div>
+</div>
+
+<div id="templates_str-substr" class="bookmark"></div>
+<h2>Strings - Substring</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--2-col">Starts with index</div>
+  <div class="z-text--code z-cell z-cell--5-col var">${path:10}</div>
+  <div class="z-text--code z-cell z-cell--5-col"> sweet home</div>
+  <div class="z-cell z-cell--2-col">Starts with index (reverse)</div>
+  <div class="z-text--code z-cell z-cell--5-col var">${path:(-4)}</div>
+  <div class="z-text--code z-cell z-cell--5-col">home</div>
+  <div class="z-cell z-cell--2-col">Substring</div>
+  <div class="z-text--code z-cell z-cell--5-col var">${path:6:4}</div>
+  <div class="z-text--code z-cell z-cell--5-col">user</div>
+  <div class="z-cell z-cell--2-col">Remove prefix</div>
+  <div class="z-text--code z-cell z-cell--5-col var">${path#*/}</div>
+  <div class="z-text--code z-cell z-cell--5-col">home/user sweet home</div>
+  <div class="z-cell z-cell--2-col">Remove prefix (greedy)</div>
+  <div class="z-text--code z-cell z-cell--5-col var">${path##*/}</div>
+  <div class="z-text--code z-cell z-cell--5-col">user sweet home</div>
+  <div class="z-cell z-cell--2-col">Remove suffix</div>
+  <div class="z-text--code z-cell z-cell--5-col var">${path%o*}</div>
+  <div class="z-text--code z-cell z-cell--5-col">/home/user sweet h</div>
+  <div class="z-cell z-cell--2-col">Remove suffix (greedy)</div>
+  <div class="z-text--code z-cell z-cell--5-col var">${path%%o*}</div>
+  <div class="z-text--code z-cell z-cell--5-col">/h</div>
+</div>
+
+<div id="templates_str-repl" class="bookmark"></div>
+<h2>Strings - Replacement</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--2-col">Replace first occurrence</div>
+  <div class="z-text--code z-cell z-cell--5-col var">${path/home/castle}</div>
+  <div class="z-text--code z-cell z-cell--5-col">/castle/user sweet home</div>
+  <div class="z-cell z-cell--2-col">Replace all occurrences</div>
+  <div class="z-text--code z-cell z-cell--5-col var">${path//home/castle}</div>
+  <div class="z-text--code z-cell z-cell--5-col">/castle/user sweet castle</div>
+  <div class="z-cell z-cell--2-col">Replace prefix</div>
+  <div class="z-text--code z-cell z-cell--5-col var">${path/#\/home/\/castle}</div>
+  <div class="z-text--code z-cell z-cell--5-col">/castle/user sweet home</div>
+  <div class="z-cell z-cell--2-col">Replace suffix</div>
+  <div class="z-text--code z-cell z-cell--5-col var">${path/%home/castle}</div>
+  <div class="z-text--code z-cell z-cell--5-col">/home/user sweet castle</div>
+</div>
+
+<div id="templates_call" class="bookmark"></div>
+<h2>Call External Program</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--2-col">Simple call</div>
+  <div class="z-text--code z-cell z-cell--5-col">$(hostname)</div>
+  <div class="z-text--code z-cell z-cell--5-col">ATC101875</div>
+  <div class="z-cell z-cell--2-col">Call perl with arguments</div>
+  <div class="z-text--code z-cell z-cell--5-col">$(perl -e <span class="str">"print 3/2."</span>)</div>
+  <div class="z-text--code z-cell z-cell--5-col">1.5</div>
+  <div class="z-cell z-cell--2-col">Execute JavaScript using Java</div>
+  <div class="z-text--code z-cell z-cell--5-col">$(jjs -e <span class="str">"print 3/2."</span>)</div>
+  <div class="z-text--code z-cell z-cell--5-col">1.5</div>
+</div>
+
+<div id="templates_arithm" class="bookmark"></div>
+<h2>Integer Arithmetic</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--2-col">Addition</div>
+  <div class="z-text--code z-cell z-cell--5-col">$((2+3))</div>
+  <div class="z-text--code z-cell z-cell--5-col">5</div>
+  <div class="z-cell z-cell--2-col">Subtraction</div>
+  <div class="z-text--code z-cell z-cell--5-col">$((2-3))</div>
+  <div class="z-text--code z-cell z-cell--5-col">-1</div>
+  <div class="z-cell z-cell--2-col">Multiplication</div>
+  <div class="z-text--code z-cell z-cell--5-col">$((2*3))</div>
+  <div class="z-text--code z-cell z-cell--5-col">6</div>
+  <div class="z-cell z-cell--2-col">Division</div>
+  <div class="z-text--code z-cell z-cell--5-col">$((2/3))</div>
+  <div class="z-text--code z-cell z-cell--5-col">0</div>
+  <div class="z-cell z-cell--2-col">Increment</div>
+  <div class="z-text--code z-cell z-cell--5-col"><span class="cmd">&num;var</span> a=2<br>$((a+=1))</div>
+  <div class="z-text--code z-cell z-cell--5-col">
+    <div class="cmt"># sets a to 2</div>
+    3
+  </div>
+</div>
+
+<div id="templates_cond" class="bookmark"></div>
+<h2>Conditions</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--2-col">if</div>
+  <div class="z-text--code z-cell z-cell--5-col">
+    <span class="cmd">#if</span> [ 0 < 1 ]<br>
+    0 < 1<br>
+    <span class="cmd">#endif</span>
+  </div>
+  <div class="z-text--code z-cell z-cell--5-col">
+    0 < 1
+  </div>
+  <div class="z-cell z-cell--2-col">if-else</div>
+  <div class="z-text--code z-cell z-cell--5-col">
+    <span class="cmd">#if</span> [ 0 >= 1 || 0 <= 1 ]<br>
+    tautology<br>
+    <span class="cmd">#else</span><br>
+    contradiction<br>
+    <span class="cmd">#endif</span>
+  </div>
+  <div class="z-text--code z-cell z-cell--5-col">
+    tautology
+  </div>
+  <div class="z-cell z-cell--2-col">if-elif</div>
+  <div class="z-text--code z-cell z-cell--5-col">
+    <span class="cmd">#if</span> [ <span class="var">${a}</span> == 2 && 2 != <span class="str">"<span class="var">${a}</span>"</span> ]<br>
+    contradiction<br>
+    <span class="cmd">#elif</span> [ <span class="str">"<span class="var">$a</span>"</span> == <span class="var">${a}</span> ]<br>
+    a=<span class="var">$a</span><br>
+    <span class="cmd">#endif</span>
+  </div>
+  <div class="z-text--code z-cell z-cell--5-col">
+    a=2
+  </div>
+</div>
+
+<div id="templates_loop" class="bookmark"></div>
+<h2>Loops</h2>
+<div class="z-grid">
+  <div class="z-cell z-cell--2-col">Iteration</div>
+  <div class="z-text--code z-cell z-cell--5-col">
+    <span class="cmd">&num;for</span> <span class="var">i</span> in 1..3<br>
+    <span class="var">${i}</span>*(<span class="var">$i</span>+1)=$((<span class="var">i</span>*(<span class="var">$i</span>+1)))&lt;br&gt;<br>
+    <span class="cmd">&num;endfor</span>
+  </div>
+  <div class="z-text--code z-cell z-cell--5-col">
+    1*(1+1)=2<br>
+    2*(2+1)=6<br>
+    3*(3+1)=12<br>
+  </div>
+  <div class="z-cell z-cell--2-col">Enumeration</div>
+  <div class="z-text--code z-cell z-cell--5-col">
+    &lt;ul&gt;<br>
+    <span class="cmd">&num;for</span> <span class="var">str</span> in a <span class="var">$a</span>
+    <span class="str">"<span class="var">$CLASSES</span>"</span> <span class="var">$CLASSES</span><br>
+    &lt;li&gt;<span class="var">${str}</span>&lt;/li&gt;<br>
+    <span class="cmd">&num;endfor</span><br>
+    &lt;/ul&gt;
+  </div>
+  <div class="z-text--code z-cell z-cell--5-col">
+    <ul>
+      <li>a</li>
+      <li>2</li>
+      <li>z-text--code z-cell z-cell--5-col</li>
+      <li>z-text--code</li>
+      <li>z-cell</li>
+      <li>z-cell--5-col</li>
+    </ul>
+  </div>
+</div>
+
+<div id="templates_import" class="bookmark"></div>
+<h2>Imports</h2>
+<span class="z-text--highlight">footer.zt</span>
+<div class="z-text--code-block"
+>&lt;div&gt;
+created at <span class="var">${DATE}</span>
+&lt;span class="z-text--highlight"&gt;<span class="var">$2</span>&lt;/span&gt;
+args: <span class="var">$@</span>
+&lt;/div&gt;
+</div>
+<p>
+<div class="z-grid">
+  <div class="z-cell z-cell--2-col">Import</div>
+  <div class="z-text--code z-cell z-cell--5-col">
+    <span class="cmd">&num;var</span> NOW=<span class="str">"$(date +%s.%N)"</span><br>
+    <span class="cmd">&num;var</span> DIFF=
+    <span class="str">"$(echo print <span class="str">"<span class="var">${NOW}</span>-<span class="var">${DATE}</span>"</span> | perl)"</span><br>
+    <span class="cmd">&num;import</span> footer <span class="str">"in"</span> <span class="var">${DIFF}</span> sec
+  </div>
+  <div class="z-text--code z-cell z-cell--5-col">
+    <span class="cmt"># sets NOW to "1522583822.693323000"</span><br>
+    <span class="cmt"># sets DIFF to "1.27216148376465"</span><br>
+<div>
+  created at 1522583821.421161400<br>
+  <span class="z-text--highlight">1.27216148376465</span><br>
+  args: in 1.27216148376465 sec<br>
+</div>
+  </div>
+</div>
+  </section>
+
+  <div id="bottom" class="z-color--white">
+    <div id="navBar" style="width: 100%"></div>
+  </div>
+</div>
+
+<script type="application/javascript" src="js/zen/base.js"></script>
+<script type="application/javascript" src="js/zen/dom.js"></script>
+<script type="application/javascript" src="js/zen/string.js"></script>
+<script type="application/javascript" src="js/zen/components.js"></script>
+<script type="application/javascript" src="js/nav.js"></script>

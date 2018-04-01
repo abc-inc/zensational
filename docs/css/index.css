@@ -1,0 +1,144 @@
+/*
+ * Copyright 2018 The zensational authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+@import url('https://fonts.googleapis.com/css?family=Allura');
+
+body.scroll {
+  transition: transform 300ms ease;
+}
+
+body.scroll-smooth {
+  transition: transform 1000ms ease;
+}
+
+.fadingEffect {
+  animation: showHide 1s ease-in;
+  background: #fff;
+  height: 100vh;
+  position: absolute;
+  top: 0;
+  width: 0;
+}
+
+.appear {
+  animation: appear 1.5s ease-in;
+}
+
+@keyframes showHide {
+  0% {
+    left: 0;
+    width: 100%;
+  }
+  100% {
+    left: 100%;
+    width: 0;
+  }
+}
+
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+
+#header h1 {
+  font-size: 10rem;
+}
+
+#header h2 {
+  font-size: 3.4rem;
+}
+
+#header h1,
+#header h2 {
+  font-family: 'Allura', serif;
+  font-weight: normal;
+}
+
+ul {
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  margin: 1rem;
+}
+
+section {
+  min-height: 100vh;
+  padding-left: 3rem;
+  padding-right: 3rem;
+}
+
+section {
+  align-items: stretch;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+section .spacer {
+  flex-grow: 100;
+}
+
+a.scrollButton {
+  color: #bdbdbd;
+  font-size: 6rem;
+  margin-bottom: 2rem;
+}
+
+#footer {
+  margin-bottom: 2rem;
+}
+
+.signature {
+  font-family: 'Allura', sans-serif;
+}
+
+.z-grid {
+  margin: -1.5rem;
+}
+
+.z-cell {
+  padding: 1.5rem;
+}
+
+#content .z-grid .z-cell div {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+
+.anchor {
+  visibility: hidden;
+}
+
+.anchor-container:hover .anchor,
+.anchor:hover {
+  visibility: visible !important;
+}
+
+.lnr {
+  font-size: 0.75em;
+  line-height: 125%;
+  vertical-align: baseline;
+}
