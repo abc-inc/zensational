@@ -69,7 +69,7 @@ z.isDefAndNotNull = function (val) {
  * @returns {boolean}
  */
 z.isFunction = function (val) {
-  var className = Object.prototype.toString.call(/** @type {Object} */ (val));
+  var className = Object.prototype.toString.call(val);
   if (className === '[object Function]') {
     return true;
   } else if (z.isDefAndNotNull(val)

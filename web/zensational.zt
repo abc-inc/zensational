@@ -75,8 +75,5 @@ limitations under the License.
   </div>
 </div>
 
-<script type="application/javascript" src="../library/js/modules/base.js"></script>
-<script type="application/javascript" src="../library/js/modules/dom.js"></script>
-<script type="application/javascript" src="../library/js/modules/string.js"></script>
-<script type="application/javascript" src="../library/js/modules/components.js"></script>
+<script type="application/javascript" src="js/zen.min.js"></script>
 <script type="application/javascript" src="js/nav.js"></script>

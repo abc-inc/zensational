@@ -25,6 +25,7 @@ function get_time {
 function main {
   cd "$(dirname "$0")"
 
+  local zen_js="js/zen.min.js"
   local delay="${1:-}"
   local repeat=0
   [[ "${delay}" == "" ]] || repeat=2147483648
@@ -32,9 +33,17 @@ function main {
   for (( i=0; i<="${repeat}" ; i++ )); do
     local start_time="$(date +%s.%N)"
     echo "$(get_time) Starting Build..."
-    echo "$(get_time) Compiling templates..."
-    "${ZEN_HOME}/bin/zen.sh" clean cache
-    "${ZEN_HOME}/bin/zen-template.sh" -f zensational.zt -o ../docs/zensational.html
+    echo "$(get_time) Compiling JavaScript..."
+    head -n 15 "js/modules/base.js" > "${zen_js}"
+    for module in base asserts string dom events net components; do
+      local content="$(< "js/modules/${module}.js")"
+      content="$(echo "${content}" | sed -r '/\/\*.+\*\//d; /\/\*/,/\*\//d')"
+      content="$(echo "${content}" | sed -r "s/\s+([&|!=,;:(){}?+\-\*/])\s*/\1/g")"
+      content="$(echo "${content}" | sed -r "s/\s*([&|!=,;:(){}?+\-\*/])\s+/\1/g")"
+      content="${content//  /}"
+      content="${content//$'\n'}"
+      echo -n "${content}" >> "${zen_js}"
+    done
 
     local end_time="$(date +%s.%N)"
     local diff="$(echo print "${end_time}-${start_time}" | perl)"
