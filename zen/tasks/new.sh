@@ -23,6 +23,7 @@ function info {
 function execute {
   local config_file="${PROJECT_DIR}/zen.json"
   [[ ! -f "${config_file}" ]] || error "Project config \"${config_file}\" already exists"
+  mkdir -p "${PROJECT_DIR}"
 
   local starter_dir="${ZEN_HOME}/starters/x"
   echo "Creating a new project in \"${PROJECT_DIR}\""

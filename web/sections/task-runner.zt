@@ -45,13 +45,16 @@ Writing "/tmp/demo/zen.json"</div>
 >$ <span class="z-color-text--red">cd /tmp/demo/</span>
 $ <span class="z-color-text--red">zen run</span>
 <span class="z-color-text--blue">:install:import "base"</span>
-<span class="z-color-text--blue">:install:import "events"</span>
-module "events" requires "dom"
-<span class="z-color-text--blue">:install:import "dom"</span>
-<span class="z-color-text--blue">:install:import "net"</span>
-module "net" requires "asserts"
 <span class="z-color-text--blue">:install:import "asserts"</span>
+<span class="z-color-text--blue">:install:import "components"</span>
+module "components" requires "dom"
+<span class="z-color-text--blue">:install:import "dom"</span>
+module "components" requires "string"
+<span class="z-color-text--blue">:install:import "string"</span>
 <span class="z-color-text--yellow">module "dom" already imported</span>
+<span class="z-color-text--blue">:install:import "events"</span>
+<span class="z-color-text--blue">:install:import "net"</span>
+<span class="z-color-text--yellow">module "string" already imported</span>
 <span class="z-color-text--blue">:install</span>
 <span class="z-color-text--blue">:build</span>
 <span class="z-color-text--blue">:run</span>

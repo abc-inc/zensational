@@ -1,0 +1,54 @@
+#!/usr/bin/env bash
+#
+# Copyright 2018 The zensational authors.
+#
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+#
+#     http://www.apache.org/licenses/LICENSE-2.0
+#
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+#
+################################################################################
+
+set -euo pipefail
+
+[[ -n "${ZEN_USER_HOME:+x}" ]] || export ZEN_USER_HOME="${HOME}/.zensational"
+readonly ZEN_USER_HOME
+
+declare -xr PROJECT_DIR="$(dirname "$0")"
+if [[ -f "${PROJECT_DIR}/zen.json" ]]; then
+  declare -xr ZEN_VERSION="$(grep '"version"' "${PROJECT_DIR}/zen.json" | head -n1 | grep -oE '[0-9](\.[0-9])+')"
+else
+  declare -xr ZEN_VERSION="1.4"
+fi
+
+[[ -n "${ZEN_HOME:+x}" ]] || export ZEN_HOME="${ZEN_USER_HOME}/dists/${ZEN_VERSION}"
+readonly ZEN_HOME
+
+
+if [[ ! -d "${ZEN_HOME}" ]]; then
+  dist_zip="${ZEN_HOME}/zensational-${ZEN_VERSION}.zip"
+  if [[ ! -f "${dist_zip}" ]]; then
+    echo "Downloading zensational ${ZEN_VERSION} to \"${dist_zip}\"..."
+    curl -s -L -o "${dist_zip}" "https://github.com/abc-inc/zensational/releases/download/zensational-${ZEN_VERSION}.zip" || ret=$?
+    if [[ "${ret:-0}" -ne 0 ]]; then
+      echo "ERROR: Cannot download zensational distribution."
+      exit "${ret}"
+    fi
+  fi
+
+  if [[ -f "${dist_zip}" && ! -f "${dist_zip}.ok" ]]; then
+    echo "Installing zensational ${ZEN_VERSION}..."
+    unzip "${dist_zip}" -d "${ZEN_HOME}"
+    touch "${dist_zip}.ok"
+    "${ZEN_HOME}/bin/zen.sh" setup
+  fi
+fi
+
+"${ZEN_HOME}/bin/zen.sh" "$@"

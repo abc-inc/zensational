@@ -22,7 +22,7 @@ limitations under the License.
 <link href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.css">
 <link href="https://fonts.googleapis.com/css?family=Allura" rel="stylesheet">
 <link href="css/zensational.min.css" rel="stylesheet">
-<link href="css/index.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
 <link href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css" rel="stylesheet">
 
 <nav id="menu">
@@ -58,7 +58,7 @@ limitations under the License.
     #import sections/getting-started
   </section>
   <section id="task-runner" hidden>
-    #import sections/task_runner
+    #import sections/task-runner
   </section>
   <section id="style" hidden>
     #import sections/style

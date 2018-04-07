@@ -66,7 +66,7 @@ function main {
   shift $((OPTIND-1))
 
   readonly PROJECT_DIR
-  [[ -d "${PROJECT_DIR}" ]] || error "Directory \"${PROJECT_DIR}\" does not exist."
+  [[ -d "${PROJECT_DIR}" || "$1" == "new" ]] || error "Directory \"${PROJECT_DIR}\" does not exist."
 
   execute_task "$@"
 }
