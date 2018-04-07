@@ -46,6 +46,9 @@ limitations under the License.
   <dd><a href="#_lists" data-bookmark="components_lists" data-category="Components" data-section="Lists">Lists</a></dd>
   <dd><a href="#_selection-controls" data-bookmark="components_selection-controls" data-category="Components" data-section="Selection-Controls">Selection Controls</a></dd>
   <dd><a href="#_text-fields" data-bookmark="components_text-fields" data-category="Components" data-section="Text-Fields">Text Fields</a></dd>
+  </dl><dl>
+  <dt>Examples</dt>
+  <dd><a href="#_google-search" data-bookmark="examples_google-search" data-category="Examples" data-section="Google-Search">Google Search</a></dd>
   </dl>
 </nav>
 <div id="content">
@@ -1354,6 +1357,200 @@ args: <span class="var">$@</span>
 </div>
   </div>
 </div>
+  </section>
+  <section id="examples" hidden>
+<section id="google-search">
+<div class="z-text--headline">
+  zensational reduces the size of Google Search significantly.
+</div>
+
+<h2>Result</h2>
+<img src="images/google_search.png" class="lifted" style="display: block; margin: 2rem auto;">
+
+<h2>Templates</h2>
+<div id="index">
+  <h2>index.zt</h2>
+  <div class="z-button collapsible">Expand index.zt</div>
+  <div class="content z-text--code-block">&lt;!--
+Copyright 2018 The zensational authors.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+--&gt;
+<span class="z-color-text--blue">#const WEBSITE=Google</span>
+&lt;!DOCTYPE html&gt;
+&lt;html itemscope="" itemtype="http://schema.org/WebPage" lang="en-US"&gt;
+<span class="z-color-text--blue">#import templates/head</span>
+&lt;body class="hp vasq zhe" id="gsr"&gt;
+&lt;div class="ctr-p" id="viewport"&gt;
+  &lt;div id="doc-info"&gt;&lt;/div&gt;
+  &lt;div id="cst"&gt;
+  &lt;/div&gt;
+  &lt;div class="jhp big" id="searchform"&gt;
+<span class="z-color-text--blue">    #import templates/apps Mail Images</span>
+    &lt;form class="tsf" style="overflow:visible" id="tsf" method="GET" name="f" onsubmit="alert('April Fools!');"&gt;
+      &lt;div class="tsf-p"&gt;
+        &lt;div class="sfibbbc"&gt;
+          &lt;div class="sbtc" id="sbtc"&gt;
+            &lt;div class="sbibtd"&gt;
+              &lt;div class="sbibod " id="sfdiv"&gt;
+                &lt;div class="lst-c"&gt;
+                  &lt;div class="gstl_0 sbib_a" style="height: 44px;"&gt;
+                    &lt;div class="gsst_b sbib_c" id="gs_st0" style="line-height: 44px;" dir="ltr"&gt;
+                      &lt;a class="gsst_a z-text--headline" href="#"&gt;&lt;span class="gsri_a lnr lnr-mic" id="gsri_ok0"&gt;&lt;/span&gt;&lt;/a&gt;
+                    &lt;/div&gt;
+                    &lt;div class="sbib_b" id="sb_ifc0" dir="ltr"&gt;
+                      &lt;div id="gs_lc0" style="position: relative;"&gt;
+                        &lt;input class="" id="lst-ib" maxlength="2048" name="q" autocomplete="off" title="Search" value=""
+                               style="width: 100%; position: absolute; z-index: 6; left: 0; outline: none;"
+                               dir="ltr" spellcheck="false"&gt;
+                      &lt;/div&gt;
+                    &lt;/div&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="jsb" style="padding-top:18px"&gt;
+          &lt;center&gt;
+<span class="z-color-text--blue">            #import templates/button "btnK" "Search"</span>
+<span class="z-color-text--blue">            #import templates/button "btnI" "I&#39;m Feeling Happy"</span>
+          &lt;/center&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/form&gt;
+  &lt;/div&gt;
+  &lt;div class="sfbgx"&gt;&lt;/div&gt;
+  &lt;div id="gac_scont"&gt;&lt;/div&gt;
+  &lt;div class="content" id="main"&gt;&lt;span class="ctr-p z-text--center" id="body"&gt;
+    &lt;div style="height:233px;margin-top:89px" id="lga"&gt;
+<span class="z-color-text--blue">      #import templates/logo "<span class="z-color-text--red">${WEBSITE}</span>" "BRYBGR"</span>
+    &lt;/div&gt;
+    &lt;div style="height:118px"&gt;&lt;/div&gt;
+    &lt;div id="prm-pt" style="margin-top:12px"&gt;
+      &lt;div id="als"&gt;&lt;div id="CToSde"&gt;Search offered in: &lt;a class="z-link" href="#"&gt;English&lt;/a&gt; &lt;/div&gt;&lt;/div&gt;
+      &lt;div id="swml"&gt;&lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/span&gt;
+<span class="z-color-text--blue">    #import templates/footer</span>
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;link rel="stylesheet" href="css/style.css"&gt;
+&lt;/body&gt;
+&lt;/html&gt;</div>
+</div>
+<div id="templates/head">
+  <h2>templates/head.zt</h2>
+  <div class="z-button collapsible">Expand templates/head.zt</div>
+  <div class="content z-text--code-block">&lt;head&gt;
+  &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8"&gt;
+  &lt;link href="https://cdn.linearicons.com/free/1.0.0/icon-font.min.css" rel="stylesheet"&gt;
+  &lt;meta content="origin" name="referrer"&gt;
+  &lt;title&gt;Search&lt;/title&gt;
+  &lt;link rel="stylesheet" href="css/misc.css"&gt;
+&lt;/head&gt;</div>
+</div>
+<div id="templates/apps">
+  <h2>templates/apps.zt</h2>
+  <div class="z-button collapsible">Expand templates/apps.zt</div>
+  <div class="content z-text--code-block"><span class="z-color-text--blue">#var apps="<span class="z-color-text--red">$@</span>"</span>
+&lt;div id="gb" class="gb_T"&gt;
+  &lt;div id="gbw"&gt;
+    &lt;div style="top:0;left:0;right:0;width:100%"&gt;
+      &lt;div class="gb_nb gb_Lg gb_R gb_Kg gb_Og gb_T" style="min-width: 220px;"&gt;
+        &lt;div class="gb_oe gb_R gb_Lg gb_Bg"&gt;
+<span class="z-color-text--blue">          #for app in <span class="z-color-text--red">${apps}</span></span>
+          &lt;div class="gb_Q gb_R"&gt;&lt;a class="gb_P" href="#"&gt;<span class="z-color-text--red">${app}</span>&lt;/a&gt;&lt;/div&gt;
+<span class="z-color-text--blue">          #endfor</span>
+        &lt;/div&gt;
+        &lt;div class="gb_Ec gb_Lg gb_R" style="min-width: 114px;"&gt;
+          &lt;div class="gb_fa" id="gbsfw" style="background-color:#eee;min-width:376px"&gt;&lt;/div&gt;
+          &lt;div class="gb_da gb_9c gb_R" id="gbwa"&gt;
+            &lt;div class="gb_Qc"&gt;&lt;a class="gb_b" href="#" title="Apps" tabindex="0"&gt;
+              &lt;span class="lnr lnr-menu"&gt;&lt;/span&gt;
+            &lt;/a&gt;&lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div class="gb_vg gb_R"&gt;
+            &lt;div class="gb_Qc"&gt;&lt;a class="z-link" id="gb_70" href="#" target="_top"&gt;Sign in&lt;/a&gt;&lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+</div>
+<div id="templates/button">
+  <h2>templates/button.zt</h2>
+  <div class="z-button collapsible">Expand templates/button.zt</div>
+  <div class="content z-text--code-block">&lt;input value="<span class="z-color-text--red">$2</span>" name="<span class="z-color-text--red">$1</span>" type="submit" class="z-link"&gt;</div>
+</div>
+<div id="templates/logo">
+  <h2>templates/logo.zt</h2>
+  <div class="z-button collapsible">Expand templates/logo.zt</div>
+  <div class="content z-text--code-block"><span class="z-color-text--blue">#var word="<span class="z-color-text--red">$1</span>"</span>
+<span class="z-color-text--blue">#var colors="<span class="z-color-text--red">$2</span>"</span>
+<span class="z-color-text--blue">#var R="red"</span>
+<span class="z-color-text--blue">#var Y="yellow"</span>
+<span class="z-color-text--blue">#var G="green"</span>
+<span class="z-color-text--blue">#var B="blue"</span>
+<span class="z-color-text--blue">#for (( i=0; i&lt;<span class="z-color-text--red">${#word}</span>; i++ ))</span>
+<span class="z-color-text--blue">  #var char="<span class="z-color-text--red">${word:$i:1}</span>"</span>
+<span class="z-color-text--blue">  #var color_code="<span class="z-color-text--red">${colors:$i:1}</span>"</span>
+&lt;span class="z-color-text--<span class="z-color-text--red">${!color_code}</span>"&gt;<span class="z-color-text--red">${char}</span>&lt;/span&gt;
+<span class="z-color-text--blue">#endfor</span></div>
+</div>
+<div id="templates/footer">
+  <h2>templates/footer.zt</h2>
+  <div class="z-button collapsible">Expand templates/footer.zt</div>
+  <div class="content z-text--code-block">&lt;div class="ctr-p" id="footer"&gt;
+  &lt;div id="fbarcnt" style="height: 137px; visibility: visible;"&gt;
+    &lt;div id="footcnt"&gt;
+      &lt;div class="EvHmz hRvfYe" id="fbar" style="bottom: 0; position: absolute;"&gt;
+        &lt;div class="fbar"&gt;
+          &lt;div class="b2hzT"&gt;
+            &lt;div class="b0KoTc"&gt;&lt;span class="Q8LRLc"&gt;April&lt;/span&gt;&lt;/div&gt;
+          &lt;/div&gt;
+<span class="z-color-text--blue">          #import footer_links fsr Privacy Terms Settings</span>
+<span class="z-color-text--blue">          #import footer_links fsl Advertising Business About</span>
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;</div>
+</div>
+<div id="templates/footer_links">
+  <h2>templates/footer_links.zt</h2>
+  <div class="z-button collapsible">Expand templates/footer_links.zt</div>
+  <div class="content z-text--code-block">&lt;span id="<span class="z-color-text--red">${@:1:1}</span>"&gt;
+<span class="z-color-text--blue">  #for link in <span class="z-color-text--red">${@:2}</span></span>
+  &lt;a class="Fx4vi" href="#"&gt;<span class="z-color-text--red">${link}</span>&lt;/a&gt;
+<span class="z-color-text--blue">  #endfor</span>
+&lt;/span&gt;</div>
+</div>
+</section>
+
+<script type="text/javascript">
+  var listener = function (e) {
+    var content = this.nextElementSibling;
+    content.classList.toggle('active');
+    e.target.classList.toggle('active');
+  };
+
+  var buttons = document.getElementsByClassName('collapsible');
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', listener);
+  }
+</script>
   </section>
 
   <div id="bottom" class="z-color--white">

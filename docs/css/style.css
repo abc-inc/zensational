@@ -148,3 +148,24 @@ section h3 {
   position: relative;
   top: -2rem;
 }
+
+.collapsible {
+  cursor: pointer;
+  width: 100%;
+}
+
+.content {
+  display: none;
+  overflow: hidden;
+  padding: 1rem;
+  width: 100%;
+}
+
+.content.active {
+  display: block;
+  overflow: auto;
+}
+
+.lifted {
+  box-shadow: 0 5px 16px 0 rgba(68, 68, 68, 0.25);
+}

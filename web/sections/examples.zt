@@ -1,0 +1,16 @@
+<section id="google-search">
+  #import examples/google-search
+</section>
+
+<script type="text/javascript">
+  var listener = function (e) {
+    var content = this.nextElementSibling;
+    content.classList.toggle('active');
+    e.target.classList.toggle('active');
+  };
+
+  var buttons = document.getElementsByClassName('collapsible');
+  for (var i = 0; i < buttons.length; i++) {
+    buttons[i].addEventListener('click', listener);
+  }
+</script>

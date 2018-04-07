@@ -29,7 +29,7 @@ limitations under the License.
   <a href="zensational.html"><div><h1 class="zensational z-text--display-1">zensational</h1></div></a>
   <dl>
   #var category=""
-  #var items=(Getting-Started Task-Runner Templates Style _Color _Typography Components _Bottom-Navigation _Buttons _Cards _Data-Tables _Grids _Lists _Selection-Controls _Text-Fields)
+  #var items=(Getting-Started Task-Runner Templates Style _Color _Typography Components _Bottom-Navigation _Buttons _Cards _Data-Tables _Grids _Lists _Selection-Controls _Text-Fields Examples _Google-Search)
   #for (( i=0; i<"${#items[@]}"; i++ ))
   #var item="${items[${i}]}"
   #var section="${item#_}"
@@ -68,6 +68,9 @@ limitations under the License.
   </section>
   <section id="templates" hidden>
     #import sections/template/directives
+  </section>
+  <section id="examples" hidden>
+    #import sections/examples
   </section>
 
   <div id="bottom" class="z-color--white">
