@@ -37,7 +37,7 @@ function calc_checksum {
 }
 
 function is_cacheable {
-  ! grep -qE '\$\([^(]' "$1"
+  ! grep -qE '\$\([^(]' "$1" || [[ $# -gt 1 ]]
 }
 
 function resolve_cached_file {
@@ -51,6 +51,7 @@ function parse_template {
   local rc=0
   local result="#!/usr/bin/env bash
 set -euo pipefail
+ZEN_STOPWATCH_START=\"\$(date +%s%N)\"
 "
 
   while IFS='' read -r line || [[ -n "${line}" ]]; do
@@ -83,12 +84,14 @@ set -euo pipefail
       local file
       file="$(dirname "${inputFile}")/$2.zt"
       shift 2
+      local start_time="$(date +%s%N)"
       file="$(process_template "${file}" "$@")" || rc=$?
+      local end_time="$(date +%s%N)"
+      echo "Processed  ${file} in $(( (${end_time}-${start_time}) / 1000000)) ms" >&2
       if [[ "${rc}" -ne 0 ]]; then
         echo "${file}"
         return "${rc}"
       fi
-      echo "$file" 1>&2
       str="${file} $@"
     elif [[ "${cmd}" == "#var" ]]; then
       str="${str/\#var/export}"
@@ -99,11 +102,14 @@ set -euo pipefail
     elif [[ "${cmd}" == "#continue" || "${cmd}" == "#break" ]]; then
       str="${cmd#\#}"
     else
-      str="cat << EOF"$'\n'"$str"$'\n'"EOF"
+      str="cat << EOF"$'\n'"${str}"$'\n'"EOF"
     fi
     result+="${str}
 "
   done < "${inputFile}"
+
+  result+="ZEN_STOPWATCH_END=\"\$(date +%s%N)\"
+echo \"Executed   ${inputFile} in \$(((\${ZEN_STOPWATCH_END}-\${ZEN_STOPWATCH_START})/1000000)) ms\" >&2"
 
   echo "${result}" | tr "\\n" "\\r" | sed -e "s/\\rEOF\\rcat << EOF\\r/\\r/g" | tr "\\r" "\\n"
 }
@@ -120,11 +126,11 @@ function process_template {
   checksum="$(calc_checksum "${template}" "$@")"
   cached_template="$(resolve_cached_file "${template}" "${checksum}")"
 
-  if ! is_cacheable "${template}" || [[ ! -f "${cached_template}" ]]; then
+  if (! is_cacheable "${template}" "$@") || [[ ! -f "${cached_template}" ]]; then
     mkdir -p "$(dirname "${cached_template}")"
     result="$(parse_template "${template}" "$@")" || rc=$?
     if [[ "${rc}" -ne 0 ]]; then
-      echo "$result"
+      echo "${result}"
       return "${rc}"
     fi
     echo "${result}" > "${cached_template}"
@@ -143,7 +149,7 @@ function run_template {
 
   shift
   checksum="$(calc_checksum "${template}" "$@")"
-  output="$(resolve_cached_file "${template}.sh" "${checksum}")"
+  output="$(resolve_cached_file "${template}" "${checksum}")"
 
   if [[ ! -f "${output}" ]]; then
     result="$(process_template "${template}" "$@")" || rc=$?
@@ -151,10 +157,10 @@ function run_template {
       echo "${result}"
       return "${rc}"
     fi
-    ${result} "$@" > "${output}"
+    "${result}" "$@" > "${output}.sh"
   else
     local imports
-    imports="$(grep -F '#import' <<< "$(< "${template}")")"
+    imports="$(grep -F '#import' "${template}")"
     while IFS='\n' read -r import || [[ -n "${import}" ]]; do
       [[ -n "${import}" ]] || continue
       set -- ${import}
@@ -166,9 +172,12 @@ function run_template {
         return "${rc}"
       fi
     done <<< "${imports}"
+
+    echo "Running    ${template}" >&2
+    "${output}" "$@" > "${output}.sh"
   fi
 
-  echo "${output}"
+  echo "${output}.sh"
 }
 
 function usage {
@@ -209,7 +218,7 @@ function main {
 
   file="$(run_template "${template}")" || rc=$?
   if [[ "${rc}" -ne 0 ]]; then
-    echo "$file"
+    echo "${file}"
     exit "${rc}"
   fi
   if [[ "${output}" == "-" ]]; then

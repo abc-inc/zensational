@@ -33,7 +33,6 @@ function main {
     local start_time="$(date +%s.%N)"
     echo "$(get_time) Starting Build..."
     echo "$(get_time) Compiling templates..."
-    "${ZEN_HOME}/bin/zen.sh" clean cache
     "${ZEN_HOME}/bin/zen-template.sh" -f zensational.zt -o ../docs/zensational.html
 
     local end_time="$(date +%s.%N)"
