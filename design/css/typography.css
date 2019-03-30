@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 The zensational authors.
+ * Copyright 2019 The zensational authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,8 +15,13 @@
  */
 
 body {
-  font-family: 'Lato', sans-serif;
   line-height: 1.5em;
+}
+
+body,
+button,
+input {
+  font-family: 'Lato', sans-serif;
 }
 
 .z-text--display-4,

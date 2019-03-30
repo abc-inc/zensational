@@ -1,5 +1,5 @@
 /*
- * Copyright 2018 The zensational authors.
+ * Copyright 2019 The zensational authors.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -33,11 +33,6 @@ z.net.get = function (url, listener) {
 z.net.send = function (params) {
   z.asserts.assert(z.isDefAndNotNull(params['url']), '"url" must be defined');
   z.asserts.assert(z.isDefAndNotNull(params['listener']), '"listener" must be defined');
-
-  if (z.isDefAndNotNull(window['fetch'])) {
-    window.fetch(params['url'], params)
-        .then(params['listener']);
-  }
 
   var request = new XMLHttpRequest();
   request.open(
