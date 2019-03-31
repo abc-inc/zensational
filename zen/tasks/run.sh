@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright 2018 The zensational authors.
+# Copyright 2019 The zensational authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,11 +16,11 @@
 #
 ################################################################################
 
-function info {
+function info() {
   echo "start the web application"
 }
 
-function execute {
+function execute() {
   execute_task "build"
   log_task
 
@@ -30,21 +30,21 @@ function execute {
   app_dir="${app_dir//\/\//\/}"
   mkdir -p "${app_dir}"
 
-  if python --version 2> /dev/null; then
+  if python --version 2>/dev/null; then
     run_python "${port:-8080}" "${app_dir}"
   else
     run_websocketd "${port:-8080}" "${app_dir}"
   fi
 }
 
-function run_websocketd {
+function run_websocketd() {
   local port="${1:-8080}"
   local app_dir="$2"
   log "${INFO}" "Starting webserver at port ${port}..."
   "${ZEN_BIN_DIR}/websocketd" --port "${port}" --staticdir "${app_dir}"
 }
 
-function run_python {
+function run_python() {
   local port="${1:-8080}"
   local app_dir="$2"
   cd "${app_dir}" && python -m SimpleHTTPServer "${port}"

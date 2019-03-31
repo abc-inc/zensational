@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright 2018 The zensational authors.
+# Copyright 2019 The zensational authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,12 +16,12 @@
 #
 ################################################################################
 
-function info {
+function info() {
   echo "create project distribution"
 }
 
-function usage {
-  cat << EOF
+function usage() {
+  cat <<EOF
 $(basename "$0") dist TYPE...
 
 TARGETS:
@@ -31,12 +31,12 @@ EOF
   exit 1
 }
 
-function execute {
-  local targets="$@"
+function execute() {
+  local targets="$*"
   [[ $# -gt 0 ]] || usage
 
   for target in ${targets}; do
-    declare -F "dist_${target}" > /dev/null || usage
+    declare -F "dist_${target}" >/dev/null || usage
   done
 
   execute_task "build"
@@ -48,9 +48,9 @@ function execute {
   log_task
 }
 
-function dist_docker {
+function dist_docker() {
   log_task "dist:docker" "\\nCreating Docker image..."
-  if ! docker --version 2> /dev/null; then
+  if ! docker --version 2>/dev/null; then
     error "Docker is not installed"
   fi
 
@@ -59,7 +59,7 @@ function dist_docker {
   docker build -t "${app_name}" "${PROJECT_DIR}/"
 }
 
-function dist_zip {
+function dist_zip() {
   local app_name
   local app_version
   app_name="$(parse_json '.name' "${PROJECT_DIR}/zen.json")"
@@ -68,5 +68,5 @@ function dist_zip {
 
   log_task "dist:zip" "\\nCreating zip archive \"${zip_file}\"..."
   mkdir -p "$(dirname "${zip_file}")"
-  zip "${zip_file}" "app"
+  zip -r "${zip_file}" "app"
 }

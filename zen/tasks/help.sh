@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright 2018 The zensational authors.
+# Copyright 2019 The zensational authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,13 +16,13 @@
 #
 ################################################################################
 
-function info {
+function info() {
   echo "display this help"
 }
 
-function execute {
+function execute() {
   log_task
-  cat << EOF
+  cat <<EOF
 Usage: $(basename "$0") [OPTION...] <task> [ARG...]
 
 TASKS:
@@ -32,7 +32,7 @@ EOF
     get_info "${task}"
   done
 
-  cat << EOF
+  cat <<EOF
 
 OPTIONS:
   -d, --directory  project directory (default "${PWD}")
@@ -41,9 +41,9 @@ OPTIONS:
 EOF
 }
 
-function get_info {
+function get_info() {
   unset info
   # shellcheck disable=SC1090
   source "$1"
-  printf "%-16s $(info 2> /dev/null || echo "")\\n" "$(basename "${1%.sh}")"
+  printf "%-16s $(info 2>/dev/null || echo "")\\n" "$(basename "${1%.sh}")"
 }

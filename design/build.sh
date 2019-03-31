@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright 2018 The zensational authors.
+# Copyright 2019 The zensational authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,8 +18,9 @@
 
 set -euo pipefail
 
-function read_css {
+function read_css() {
   local css
+  # shellcheck disable=SC2094
   while IFS='' read -r line; do
     if [[ "${line}" == "" || "${line}" == "/*"* || "${line}" == " *"* || "${line}" == "*/"* ]]; then
       continue
@@ -32,30 +33,31 @@ function read_css {
       fi
     fi
     echo "${line}"
-  done < "$1"
+  done <"$1"
 }
 
-function get_time {
+function get_time() {
   date +%H:%M:%S.%N
 }
 
-function main {
+function main() {
   cd "$(dirname "$0")"
 
   local delay="${1:-}"
   local repeat=0
   [[ "${delay}" == "" ]] || repeat=2147483648
 
-  for (( i=0; i<="${repeat}" ; i++ )); do
-    local start_time="$(date +%s.%N)"
+  for ((i = 0; i <= "${repeat}"; i++)); do
+    local start_time
+    start_time="$(date +%s.%N)"
     echo "$(get_time) Starting Build..."
     echo "$(get_time) Compressing CSS..."
     local css
     css="$(read_css "css/zensational.css")"
     css="${css//  / }"
-    echo "${css}" > "css/zensational.all.css"
+    echo "${css}" >"css/zensational.all.css"
 
-    css="${css//$'\n'}"
+    css="${css//$'\n'/}"
     css="${css//  / }"
     css="${css//, /,}"
     css="${css//: /:}"
@@ -63,10 +65,12 @@ function main {
     css="${css//{ /{}"
     css="${css// \}/\}}"
     css="${css//;\}/\}}"
-    echo -n "${css}" > "css/zensational.min.css"
+    echo -n "${css}" >"css/zensational.min.css"
 
-    local end_time="$(date +%s.%N)"
-    local diff="$(echo print "${end_time}-${start_time}" | perl)"
+    local end_time
+    end_time="$(date +%s.%N)"
+    local diff
+    diff="$(echo print "${end_time}-${start_time}" | perl)"
     echo "$(get_time) Build successful in ${diff} sec"
     echo "########################################"
     sleep "${delay:-0}"

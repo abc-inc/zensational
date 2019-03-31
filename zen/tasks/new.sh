@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright 2018 The zensational authors.
+# Copyright 2019 The zensational authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,11 +16,12 @@
 #
 ################################################################################
 
-function info {
+function info() {
   echo "create a new project"
 }
 
-function execute {
+# shellcheck disable=SC2164
+function execute() {
   local config_file="${PROJECT_DIR}/zen.json"
   [[ ! -f "${config_file}" ]] || error "Project config \"${config_file}\" already exists"
   mkdir -p "${PROJECT_DIR}"
@@ -40,13 +41,13 @@ function execute {
   read -r -p "Port (default \"8080\"): " app_port
   export app_port="${app_port:-8080}"
 
-  cd "${ZEN_HOME}/starters/${app_starter}/" > /dev/null
+  cd "${ZEN_HOME}/starters/${app_starter}/" >/dev/null
   find . -type d -exec mkdir -p "${PROJECT_DIR}/{}" \;
-  for file in $(find ./ -type f); do
+  while IFS= read -r file; do
     output="$(echo "${file}" | tr "@" "\$" | envsubst)"
     echo "Writing \"${PROJECT_DIR}/${output#./}\""
-    cat "${file}" | envsubst > "${PROJECT_DIR}/${output}"
-  done
-  cd - > /dev/null
+    envsubst <"${file}" >"${PROJECT_DIR}/${output}"
+  done <<<"$(find ./ -type f)"
+  cd - >/dev/null
   cp "${ZEN_HOME}/starters/${app_starter}/zen" "${PROJECT_DIR}/"
 }

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright 2018 The zensational authors.
+# Copyright 2019 The zensational authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,25 +18,28 @@
 
 set -euo pipefail
 
-function get_time {
+function get_time() {
   date +%H:%M:%S.%N
 }
 
-function main {
+function main() {
   cd "$(dirname "$0")"
 
   local delay="${1:-}"
   local repeat=0
   [[ "${delay}" == "" ]] || repeat=2147483648
 
-  for (( i=0; i<="${repeat}" ; i++ )); do
-    local start_time="$(date +%s.%N)"
+  for ((i = 0; i <= "${repeat}"; i++)); do
+    local start_time
+    start_time="$(date +%s.%N)"
     echo "$(get_time) Starting Build..."
     echo "$(get_time) Compiling templates..."
     "${ZEN_HOME}/bin/zen-template.sh" -f zensational.zt -o ../docs/zensational.html
 
-    local end_time="$(date +%s.%N)"
-    local diff="$(echo print "${end_time}-${start_time}" | perl)"
+    local end_time
+    end_time="$(date +%s.%N)"
+    local diff
+    diff="$(echo print "${end_time}-${start_time}" | perl)"
     echo "$(get_time) Build successful in ${diff} sec"
     echo "########################################"
     sleep "${delay:-0}"

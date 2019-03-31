@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright 2018 The zensational authors.
+# Copyright 2019 The zensational authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,7 +18,7 @@
 
 set -euo pipefail
 
-function calc_checksum {
+function calc_checksum() {
   local checksum
 
   [[ -f "$1" ]] || return 1
@@ -36,17 +36,17 @@ function calc_checksum {
   echo "${checksum}"
 }
 
-function is_cacheable {
+function is_cacheable() {
   ! grep -qE '\$\([^(]' "$1" || [[ $# -gt 1 ]]
 }
 
-function resolve_cached_file {
+function resolve_cached_file() {
   local file="$1"
   local checksum="$2"
   echo "${ZEN_CACHES_DIR}/${ZEN_VERSION}/${checksum}/$(basename "${file}")"
 }
 
-function parse_template {
+function parse_template() {
   local inputFile="$1"
   local rc=0
   local result="#!/usr/bin/env bash
@@ -54,15 +54,17 @@ set -euo pipefail
 ZEN_STOPWATCH_START=\"\$(date +%s%N)\"
 "
 
+  # shellcheck disable=SC2094
   while IFS='' read -r line || [[ -n "${line}" ]]; do
     local str="${line%$'\r'}"
     local cmd=""
-    if [[ "${str}" =~ \# ]]; then
+    if [[ "${str}" == *\#* ]]; then
+      # shellcheck disable=SC2086
       set -- ${str}
       cmd="$1"
     fi
     if [[ "${cmd}" == "#if" || "${cmd}" == "#elif" ]]; then
-      str="${str/\#}"
+      str="${str/\#/}"
       str="${str//<=/ -le }"
       str="${str//>=/ -ge }"
       str="${str//</ -lt }"
@@ -71,11 +73,11 @@ ZEN_STOPWATCH_START=\"\$(date +%s%N)\"
       str="${str/ ]/ ]]}"
       str="${str}; then"
     elif [[ "${cmd}" == "#else" ]]; then
-      str="${str/\#}"
+      str="${str/\#/}"
     elif [[ "${cmd}" == "#endif" ]]; then
       str="${str/\#endif/fi}"
     elif [[ "${cmd}" == "#for" ]]; then
-      str="${str/\#}"
+      str="${str/\#/}"
       str="$(echo "${str}" | sed -re "s/([0-9]+)\s*\.\.\s*([0-9]+)/{\1..\2}/g")"
       str="${str}; do"
     elif [[ "${cmd}" == "#endfor" || "${cmd}" == "done" ]]; then
@@ -84,15 +86,17 @@ ZEN_STOPWATCH_START=\"\$(date +%s%N)\"
       local file
       file="$(dirname "${inputFile}")/$2.zt"
       shift 2
-      local start_time="$(date +%s%N)"
+      local start_time
+      start_time="$(date +%s%N)"
       file="$(process_template "${file}" "$@")" || rc=$?
-      local end_time="$(date +%s%N)"
-      echo "Processed  ${file} in $(( (${end_time}-${start_time}) / 1000000)) ms" >&2
+      local end_time
+      end_time="$(date +%s%N)"
+      echo "Processed  ${file} in $(((end_time - start_time) / 1000000)) ms" >&2
       if [[ "${rc}" -ne 0 ]]; then
         echo "${file}"
         return "${rc}"
       fi
-      str="${file} $@"
+      str="${file} $*"
     elif [[ "${cmd}" == "#var" ]]; then
       str="${str/\#var/export}"
     elif [[ "${cmd}" == "#val" ]]; then
@@ -106,7 +110,7 @@ ZEN_STOPWATCH_START=\"\$(date +%s%N)\"
     fi
     result+="${str}
 "
-  done < "${inputFile}"
+  done <"${inputFile}"
 
   result+="ZEN_STOPWATCH_END=\"\$(date +%s%N)\"
 echo \"Executed   ${inputFile} in \$(((\${ZEN_STOPWATCH_END}-\${ZEN_STOPWATCH_START})/1000000)) ms\" >&2"
@@ -114,7 +118,7 @@ echo \"Executed   ${inputFile} in \$(((\${ZEN_STOPWATCH_END}-\${ZEN_STOPWATCH_ST
   echo "${result}" | tr "\\n" "\\r" | sed -e "s/\\rEOF\\rcat << EOF\\r/\\r/g" | tr "\\r" "\\n"
 }
 
-function process_template {
+function process_template() {
   local template="$1"
   local checksum
   local cached_template
@@ -133,14 +137,14 @@ function process_template {
       echo "${result}"
       return "${rc}"
     fi
-    echo "${result}" > "${cached_template}"
+    echo "${result}" >"${cached_template}"
     chmod +x "${cached_template}"
   fi
 
   echo "${cached_template}"
 }
 
-function run_template {
+function run_template() {
   local template="$1"
   local checksum
   local output
@@ -157,12 +161,13 @@ function run_template {
       echo "${result}"
       return "${rc}"
     fi
-    "${result}" "$@" > "${output}.sh"
+    "${result}" "$@" >"${output}.sh"
   else
     local imports
     imports="$(grep -F '#import' "${template}")"
-    while IFS='\n' read -r import || [[ -n "${import}" ]]; do
+    while IFS=$'\n' read -r import || [[ -n "${import}" ]]; do
       [[ -n "${import}" ]] || continue
+      # shellcheck disable=SC2086
       set -- ${import}
       import="$2"
       shift 2
@@ -171,17 +176,17 @@ function run_template {
         echo "${result}"
         return "${rc}"
       fi
-    done <<< "${imports}"
+    done <<<"${imports}"
 
     echo "Running    ${template}" >&2
-    "${output}" "$@" > "${output}.sh"
+    "${output}" "$@" >"${output}.sh"
   fi
 
   echo "${output}.sh"
 }
 
-function usage {
-  cat << EOF
+function usage() {
+  cat <<EOF
 Usage: $(basename "$0") [OPTION...] [ARG...]
   -f, --file     template file
   -o, --output   output file (stdout if not set)
@@ -193,13 +198,13 @@ EOF
   exit 1
 }
 
-function main {
+function main() {
   local rc=0
   local output="-"
 
-  # shellcheck source=bin/utils/utils.sh
+  # shellcheck source=utils/utils.sh
   source "${ZEN_HOME}/bin/utils/utils.sh"
-  # shellcheck source=config/zen.config.sh
+  # shellcheck source=../config/zen.config.sh
   source "${ZEN_HOME}/config/zen.config.sh"
 
   for lib in "${ZEN_HOME}"/lib/*; do
@@ -224,7 +229,7 @@ function main {
   if [[ "${output}" == "-" ]]; then
     cat "${file}"
   else
-    cat "${file}" > "${output}"
+    cat "${file}" >"${output}"
   fi
 }
 

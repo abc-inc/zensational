@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright 2018 The zensational authors.
+# Copyright 2019 The zensational authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,22 +16,23 @@
 #
 ################################################################################
 
-function info {
+function info() {
   echo "download and install zensational"
 }
 
-function execute {
+function execute() {
   log_task
+  mkdir -p "${ZEN_BIN_DIR}"
   setup_jq
   setup_websocketd
   log "${DEBUG}" "Making binaries executable..."
   chmod +x "${ZEN_BIN_DIR}"/*
 }
 
-function setup_jq {
+function setup_jq() {
   if [[ ! -f "${ZEN_BIN_DIR}/jq" ]]; then
     log_task "setup:jq"
-    log "${INFO}" "Downloading jq ${VERSION_JQ}..."
+    log "${INFO}" "Downloading jq ${VERSION_JQ} to ${ZEN_BIN_DIR}/jq..."
     curl -s -L -o "${ZEN_BIN_DIR}/jq" "https://github.com/stedolan/jq/releases/download/jq-${VERSION_JQ}/jq-linux64"
   else
     log_task "setup:jq" " ${C_YELLOW}UP-TO-DATE${C_DEFAULT}"
@@ -39,12 +40,12 @@ function setup_jq {
   fi
 }
 
-function setup_websocketd {
+function setup_websocketd() {
   if [[ ! -f "${ZEN_BIN_DIR}/websocketd" ]]; then
     log_task "setup:websocketd"
-    log "${INFO}" "Downloading websocketd ${VERSION_WEBSOCKETD}..."
+    log "${INFO}" "Downloading websocketd ${VERSION_WEBSOCKETD} to ${ZEN_BIN_DIR}/websocketd..."
     curl -s -L -o "${ZEN_BIN_DIR}/websocketd.zip" "https://github.com/joewalnes/websocketd/releases/download/v${VERSION_WEBSOCKETD}/websocketd-${VERSION_WEBSOCKETD}-linux_amd64.zip"
-    unzip -d "${ZEN_BIN_DIR}" "${ZEN_BIN_DIR}/websocketd.zip" "websocketd" > /dev/null
+    unzip -d "${ZEN_BIN_DIR}" "${ZEN_BIN_DIR}/websocketd.zip" "websocketd" >/dev/null
     rm -f "${ZEN_BIN_DIR}/websocketd.zip"
   else
     log_task "setup:websocketd" " ${C_YELLOW}UP-TO-DATE${C_DEFAULT}"

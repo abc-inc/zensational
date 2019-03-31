@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright 2018 The zensational authors.
+# Copyright 2019 The zensational authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -18,11 +18,11 @@
 
 set -euo pipefail
 
-function execute_task {
+function execute_task() {
   local task="${1:-help}"
   local task_script="${ZEN_TASKS_DIR}/${task}.sh"
 
-  if [[ " ${executed_tasks[@]} " =~ " ${task} " ]]; then
+  if [[ " ${executed_tasks[*]} " == *" ${task} "* ]]; then
     log "${INFO}" "${C_CYAN}:${task}${C_DEFAULT} ${C_YELLOW}UP-TO-DATE${C_DEFAULT}"
     return
   fi
@@ -39,15 +39,15 @@ function execute_task {
   execute "$@"
 }
 
-function main {
+function main() {
   PROJECT_DIR="${PWD}"
   executed_tasks=()
 
   ZEN_HOME="$(cd "$(dirname "$0")/../" && pwd)"
   export ZEN_HOME
-  # shellcheck source=bin/utils/utils.sh
+  # shellcheck source=utils/utils.sh
   source "${ZEN_HOME}/bin/utils/utils.sh"
-  # shellcheck source=config/zen.config.sh
+  # shellcheck source=../config/zen.config.sh
   source "${ZEN_HOME}/config/zen.config.sh"
 
   for lib in "${ZEN_HOME}"/lib/*; do
@@ -58,15 +58,24 @@ function main {
   while getopts ":d:hv" arg; do
     case "${arg}" in
       d) PROJECT_DIR="$(realpath "${OPTARG}")" ;;
-      h) execute_task "help"; exit ;;
-      v) execute_task "version"; exit ;;
-      *) execute_task "help"; exit 1;;
+      h)
+        execute_task "help"
+        exit
+        ;;
+      v)
+        execute_task "version"
+        exit
+        ;;
+      *)
+        execute_task "help"
+        exit 1
+        ;;
     esac
   done
-  shift $((OPTIND-1))
+  shift $((OPTIND - 1))
 
   readonly PROJECT_DIR
-  [[ -d "${PROJECT_DIR}" || "$1" == "new" ]] || error "Directory \"${PROJECT_DIR}\" does not exist."
+  [[ -d "${PROJECT_DIR}" || "${1:-}" == "new" ]] || error "Directory \"${PROJECT_DIR}\" does not exist."
 
   execute_task "$@"
 }

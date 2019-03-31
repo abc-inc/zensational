@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright 2018 The zensational authors.
+# Copyright 2019 The zensational authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,12 +16,12 @@
 #
 ################################################################################
 
-function info {
+function info() {
   echo "clean the output"
 }
 
-function usage {
-  cat << EOF
+function usage() {
+  cat <<EOF
 $(basename "$0") TARGET...
 
 TARGETS:
@@ -31,12 +31,12 @@ EOF
   exit 1
 }
 
-function execute {
-  local targets="$@"
+function execute() {
+  local targets="$*"
   [[ $# -gt 0 ]] || usage
 
   for target in ${targets}; do
-    declare -F "clean_${target}" > /dev/null || usage
+    declare -F "clean_${target}" >/dev/null || usage
   done
 
   log_task
@@ -46,12 +46,12 @@ function execute {
   done
 }
 
-function clean_app {
+function clean_app() {
   log_task "clean:app" "\\nCleaning webapp output..."
   rm -f "${PROJECT_DIR}/app/js/zen.js"
 }
 
-function clean_cache {
+function clean_cache() {
   local dir="${ZEN_CACHES_DIR}/${ZEN_VERSION}"
   log_task "clean:cache" "\\nPurging cache \"${dir}\"..."
   rm -rf "${dir}"

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright 2018 The zensational authors.
+# Copyright 2019 The zensational authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -16,18 +16,18 @@
 #
 ################################################################################
 
-function info {
+function info() {
   echo "run template engine"
 }
 
-function usage {
-  cat << EOF
+function usage() {
+  cat <<EOF
 $(basename "$0") FILE [OUTPUT]
 EOF
   exit 1
 }
 
-function execute {
+function execute() {
   [[ $# -ge 1 ]] || usage
 
   log_task
