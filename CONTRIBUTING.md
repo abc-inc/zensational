@@ -108,7 +108,7 @@ chances of your issue being dealt with quickly:
 Here's a template to get you started:
 
 ```
-MDL version:
+zensational version:
 Browser:
 Browser version:
 Operating system:

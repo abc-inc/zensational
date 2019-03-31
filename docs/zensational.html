@@ -53,16 +53,19 @@ limitations under the License.
   </dl>
 </nav>
 <div id="content">
+  <a href="https://github.com/abc-inc/zensational" style="position: fixed; right: 0; top: 4rem;">
+    <img src="https://github.blog/wp-content/uploads/2008/12/forkme_right_white_ffffff.png" alt="">
+  </a>
   <div id="top" class="z-color--white">
     <h2>zensational</h2>
   </div>
   <section id="getting-started" hidden>
 <div class="z-text--headline">
-  Got bash and 5 minutes? Great, you're almost there!
+  Got Bash and 5 minutes? Great, you're almost there!
 </div>
 
 <h2>Prerequisites</h2>
-zensational requires bash 4. This is it!<br>
+zensational requires Bash 4. This is it!<br>
 <p>
   Alternatively, you can use the provided
   <a class="z-link" href="https://github.com/abc-inc/zensational/blob/master/Dockerfile">Docker image</a>.<br>
@@ -73,14 +76,14 @@ zensational requires bash 4. This is it!<br>
 
 <p>
   On Windows, you may want to install <a class="z-link" href="https://cygwin.com/install.html" target="_blank">cygwin</a>
-  or <a class="z-link" href="https://gitforwindows.org/" target="_blank">Git for Windows</a>, which comes with a compatible bash version.
+  or <a class="z-link" href="https://gitforwindows.org/" target="_blank">Git for Windows</a>, which comes with a compatible Bash version.
 </p>
 
 <h2>Installation</h2>
 <ol>
-  <li>Download zensational 1.4 from
-    <a class="z-link" href="https://github.com/abc-inc/zensational/releases/download/zensational-1.4.zip" target="_blank">Github</a>
-  <li>Open the bash and run <span class="z-text--code z-color-text--blue">zen.sh setup</span>
+  <li>Download zensational 1.41 from
+    <a class="z-link" href="https://github.com/abc-inc/zensational/releases/download/1.41/zensational-1.41.tar.gz" target="_blank">Github</a>
+  <li>Open Bash and run <span class="z-text--code z-color-text--blue">zen.sh setup</span>
   <li>Checkout the <a class="z-link" href="#task-runner">Quickstart Tutorial</a></li>
 </ol>
   </section>
@@ -1139,7 +1142,7 @@ zensational has builtin directives for the following use cases:
   <div class="z-cell z-cell--2-col">Call other program</div>
   <div class="z-text--code z-cell z-cell--5-col"><span class="cmd">#var</span> DATE=<span class="str">"$(date +%s.%N)"</span></div>
   <div class="z-text--code z-cell z-cell--5-col cmt">
-    &num; sets DATE to "1522583821.421161400"
+    &num; sets DATE to "1554023497.229712651"
   </div>
   <div class="z-cell z-cell--2-col">String Interpolation</div>
   <div class="z-text--code z-cell z-cell--5-col"><span class="cmd">&num;var</span> path=<span class="str">"<span class="var">${HOME}</span> sweet home"</span>
@@ -1226,7 +1229,7 @@ zensational has builtin directives for the following use cases:
 <div class="z-grid">
   <div class="z-cell z-cell--2-col">Simple call</div>
   <div class="z-text--code z-cell z-cell--5-col">$(hostname)</div>
-  <div class="z-text--code z-cell z-cell--5-col">ATC101875</div>
+  <div class="z-text--code z-cell z-cell--5-col">zen</div>
   <div class="z-cell z-cell--2-col">Call perl with arguments</div>
   <div class="z-text--code z-cell z-cell--5-col">$(perl -e <span class="str">"print 3/2."</span>)</div>
   <div class="z-text--code z-cell z-cell--5-col">1.5</div>
@@ -1349,12 +1352,12 @@ args: <span class="var">$@</span>
     <span class="cmd">&num;import</span> footer <span class="str">"in"</span> <span class="var">${DIFF}</span> sec
   </div>
   <div class="z-text--code z-cell z-cell--5-col">
-    <span class="cmt"># sets NOW to "1522583822.693323000"</span><br>
-    <span class="cmt"># sets DIFF to "1.27216148376465"</span><br>
+    <span class="cmt"># sets NOW to "1554023497.269611725"</span><br>
+    <span class="cmt"># sets DIFF to "0.0398991107940674"</span><br>
 <div>
-  created at 1522583821.421161400<br>
-  <span class="z-text--highlight">1.27216148376465</span><br>
-  args: in 1.27216148376465 sec<br>
+  created at 1554023497.229712651<br>
+  <span class="z-text--highlight">0.0398991107940674</span><br>
+  args: in 0.0398991107940674 sec<br>
 </div>
   </div>
 </div>

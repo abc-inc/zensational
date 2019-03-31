@@ -1,9 +1,7 @@
-# zensational
-
-[![GitHub version](https://badge.fury.io/gh/abc-inc%2Fzensational.svg)](https://badge.fury.io/gh/abc-inc%2Fzensational)
+# zensational ![](web/images/42614775e5d738971befe60839ae2606.png)
 
 > An implementation of [zensational design](https://abc-inc.github.io/zensational/zensational.html#components_bottom-navigation)
-components in vanilla bash, CSS, JS and HTML.
+components in vanilla Bash, CSS, JavaScript and HTML.
 
 zensational lets you add a zensational design look and feel to your static content websites.
 It doesn't rely on any JavaScript frameworks or libraries.
@@ -42,5 +40,5 @@ and help improve the zensational. For more information visit our
 
 ## License
 
-© The zensational authors, 2018. Licensed under an
-[Apache-2](https://github.com/abc-inc/zensational/blob/master/LICENSE) license.
+© The zensational authors, 2019. Licensed under an
+[Apache 2](https://github.com/abc-inc/zensational/blob/master/LICENSE) license.
