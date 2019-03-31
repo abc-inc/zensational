@@ -1,4 +1,4 @@
-# Copyright 2018 The zensational authors.
+# Copyright 2019 The zensational authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -14,18 +14,18 @@
 #
 ################################################################################
 
-FROM debian:9.4-slim
+FROM debian:9.8-slim
 
 ARG APP_PORT
 ARG ZEN_USER
 
 ENV OSTYPE=linux-gnu
-ENV ZEN_VERSION=1.4
+ENV ZEN_VERSION=1.41
 ENV ZEN_USER_HOME="/home/${ZEN_USER:-zen}/.zensational"
 ENV ZEN_HOME="${ZEN_USER_HOME}/dists/${ZEN_VERSION}"
 
 RUN apt-get update \
- && apt-get install -y curl jq \
+ && apt-get install --no-install-recommends -y ca-certificates curl jq \
  && rm -rf /var/lib/apt/lists/* \
  && curl -s -L -O https://github.com/joewalnes/websocketd/releases/download/v0.3.0/websocketd-0.3.0_amd64.deb \
  && dpkg -i websocketd-0.3.0_amd64.deb \

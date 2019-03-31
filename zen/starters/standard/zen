@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright 2018 The zensational authors.
+# Copyright 2019 The zensational authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -23,32 +23,29 @@ readonly ZEN_USER_HOME
 
 declare -xr PROJECT_DIR="$(dirname "$0")"
 if [[ -f "${PROJECT_DIR}/zen.json" ]]; then
-  declare -xr ZEN_VERSION="$(grep '"version"' "${PROJECT_DIR}/zen.json" | head -n1 | grep -oE '[0-9](\.[0-9])+')"
+  declare -xr ZEN_VERSION="$(grep '"version"' "${PROJECT_DIR}/zen.json" | head -n1 | grep -oE '[0-9](\.[0-9]+)+')"
 else
-  declare -xr ZEN_VERSION="1.4"
+  declare -xr ZEN_VERSION="1.41"
 fi
 
 [[ -n "${ZEN_HOME:+x}" ]] || export ZEN_HOME="${ZEN_USER_HOME}/dists/${ZEN_VERSION}"
 readonly ZEN_HOME
 
-
+dist_archive="${ZEN_HOME}.tar.gz"
 if [[ ! -d "${ZEN_HOME}" ]]; then
-  dist_zip="${ZEN_HOME}/zensational-${ZEN_VERSION}.zip"
-  if [[ ! -f "${dist_zip}" ]]; then
-    echo "Downloading zensational ${ZEN_VERSION} to \"${dist_zip}\"..."
-    curl -s -L -o "${dist_zip}" "https://github.com/abc-inc/zensational/releases/download/zensational-${ZEN_VERSION}.zip" || ret=$?
-    if [[ "${ret:-0}" -ne 0 ]]; then
-      echo "ERROR: Cannot download zensational distribution."
-      exit "${ret}"
-    fi
+  echo "Downloading zensational ${ZEN_VERSION} to \"${dist_archive}\"..."
+  curl --create-dirs -Lso "${dist_archive}" "https://github.com/abc-inc/zensational/releases/download/${ZEN_VERSION}/zensational-${ZEN_VERSION}.tar.gz" || ret=$?
+  if [[ "${ret:-0}" -ne 0 ]]; then
+    echo "ERROR: Cannot download zensational distribution."
+    exit "${ret}"
   fi
 
-  if [[ -f "${dist_zip}" && ! -f "${dist_zip}.ok" ]]; then
+  if [[ -f "${dist_archive}" && ! -d "${ZEN_HOME}" ]]; then
     echo "Installing zensational ${ZEN_VERSION}..."
-    unzip "${dist_zip}" -d "${ZEN_HOME}"
-    touch "${dist_zip}.ok"
-    "${ZEN_HOME}/bin/zen.sh" setup
+    tar -xzf "${dist_archive}" -C "${ZEN_USER_HOME}/dists"
+    mv "${ZEN_USER_HOME}/dists/zensational-${ZEN_VERSION}" "${ZEN_HOME}"
+    "${ZEN_HOME}/zen/bin/zen.sh" setup
   fi
 fi
 
-"${ZEN_HOME}/bin/zen.sh" "$@"
+"${ZEN_HOME}/zen/bin/zen.sh" "$@"

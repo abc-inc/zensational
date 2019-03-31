@@ -68,14 +68,14 @@ limitations under the License.
 zensational requires Bash 4. This is it!<br>
 <p>
   Alternatively, you can use the provided
-  <a class="z-link" href="https://github.com/abc-inc/zensational/blob/master/Dockerfile">Docker image</a>.<br>
+  <a class="z-link" href="https://github.com/abc-inc/zensational/blob/master/zen/Dockerfile">Docker image</a>.<br>
   If Python is available, zensational can use
   <a class="z-link" href="https://docs.python.org/2/library/simplehttpserver.html" target="_blank">SimpleHTTPServer</a>
   for serving resources in development mode.
 </p>
 
 <p>
-  On Windows, you may want to install <a class="z-link" href="https://cygwin.com/install.html" target="_blank">cygwin</a>
+  On Windows, you may want to install <a class="z-link" href="https://cygwin.com/install.html" target="_blank">Cygwin</a>
   or <a class="z-link" href="https://gitforwindows.org/" target="_blank">Git for Windows</a>, which comes with a compatible Bash version.
 </p>
 
@@ -122,7 +122,7 @@ zensational requires Bash 4. This is it!<br>
 >$ <span class="z-color-text--red">zen.sh -d /tmp/demo/ new</span>
 Creating a new project in "/tmp/demo"
 Application name (default: "app"): <span class="z-color-text--red">demo</span>
-Version (default "1.4"):
+Version (default "1.41"):
 Starter (default "standard"): <span class="z-color-text--red">empty</span>
 Port (default "8080"):
 Writing "/tmp/demo/Dockerfile"
@@ -162,9 +162,9 @@ Sun, 01 Apr 2018 08:00:26 +0200 | ACCESS | http       | url:'http://localhost:80
 <span class="z-color-text--blue">:build</span>
 <span class="z-color-text--blue">:dist:docker</span>
 Creating Docker image...
-Docker version 17.10.0-ce, build f4ffd25
+Docker version 18.06.1-ce, build e68fc7a
 Sending build context to Docker daemon   12.8kB
-Step 1/2 : FROM zensational:1.4
+Step 1/2 : FROM zensational:1.41
 ---> 637f8761e5fe
 Step 2/2 : COPY ./ /var/www/
 ---> Using cache

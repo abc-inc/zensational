@@ -32,7 +32,7 @@
 >$ <span class="z-color-text--red">zen.sh -d /tmp/demo/ new</span>
 Creating a new project in "/tmp/demo"
 Application name (default: "app"): <span class="z-color-text--red">demo</span>
-Version (default "1.4"):
+Version (default "${ZEN_VERSION}"):
 Starter (default "standard"): <span class="z-color-text--red">empty</span>
 Port (default "8080"):
 Writing "/tmp/demo/Dockerfile"
@@ -72,9 +72,9 @@ Sun, 01 Apr 2018 08:00:26 +0200 | ACCESS | http       | url:'http://localhost:80
 <span class="z-color-text--blue">:build</span>
 <span class="z-color-text--blue">:dist:docker</span>
 Creating Docker image...
-Docker version 17.10.0-ce, build f4ffd25
+Docker version 18.06.1-ce, build e68fc7a
 Sending build context to Docker daemon   12.8kB
-Step 1/2 : FROM zensational:1.4
+Step 1/2 : FROM zensational:${ZEN_VERSION}
 ---> 637f8761e5fe
 Step 2/2 : COPY ./ /var/www/
 ---> Using cache

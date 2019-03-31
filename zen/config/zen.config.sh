@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 #
-# Copyright 2018 The zensational authors.
+# Copyright 2019 The zensational authors.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -21,14 +21,12 @@ readonly WARNING=1
 readonly INFO=2
 readonly DEBUG=3
 
-
 export LOG_LEVEL="${INFO}"
 
-export VERSION_JQ="1.5"
+export VERSION_JQ="1.6"
 export VERSION_WEBSOCKETD="0.3.0"
-export ZEN_VERSION="1.4"
+export ZEN_VERSION="1.41"
 
-export DOWNLOAD_URL="http://zensational.io/downloads/${ZEN_VERSION}/zensational-${ZEN_VERSION}.zip"
 export ZEN_CHECKSUM_FUNCTION="sha1sum"
 
 [[ -n "${ZEN_USER_HOME:+x}" ]] || export ZEN_USER_HOME="${HOME}/.zensational"
@@ -38,5 +36,5 @@ export ZEN_CACHES_DIR="${ZEN_USER_HOME}/caches"
 export ZEN_DISTS_DIR="${ZEN_USER_HOME}/dists"
 
 export ZEN_BIN_DIR="${ZEN_HOME}/bin/${OSTYPE:-linux-gnu}"
-export ZEN_MODULES_DIR="${ZEN_HOME}/js/modules"
+export ZEN_MODULES_DIR="${ZEN_HOME}/../library/js/modules"
 export ZEN_TASKS_DIR="${ZEN_HOME}/tasks"
