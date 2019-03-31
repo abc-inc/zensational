@@ -1,5 +1,5 @@
 <!--
-Copyright 2018 The zensational authors.
+Copyright 2019 The zensational authors.
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -49,6 +49,7 @@ limitations under the License.
   </dl><dl>
   <dt>Examples</dt>
   <dd><a href="#_google-search" data-bookmark="examples_google-search" data-category="Examples" data-section="Google-Search">Google Search</a></dd>
+  <dd><a href="#_google-plus" data-bookmark="examples_google-plus" data-category="Examples" data-section="Google-Plus">Google Plus</a></dd>
   </dl>
 </nav>
 <div id="content">
@@ -1364,10 +1365,9 @@ args: <span class="var">$@</span>
   zensational reduces the size of Google Search significantly.
 </div>
 
-<h2>Result</h2>
 <img src="images/google_search.png" class="lifted" style="display: block; margin: 2rem auto;">
 
-<h2>Templates</h2>
+<h2>Source Code</h2>
 <div id="index">
   <h2>index.zt</h2>
   <div class="z-button collapsible">Expand index.zt</div>
@@ -1536,6 +1536,307 @@ limitations under the License.
   &lt;a class="Fx4vi" href="#"&gt;<span class="z-color-text--red">${link}</span>&lt;/a&gt;
 <span class="z-color-text--blue">  #endfor</span>
 &lt;/span&gt;</div>
+</div>
+</section>
+<section id="google-plus">
+<div class="z-text--headline">
+  Google Plus community discovery built using zensational.
+</div>
+
+<img src="images/google_plus.png" class="lifted" style="display: block; margin: 2rem auto;">
+
+<h2>Source Code</h2>
+<div id="index.zt">
+  <h2>index.zt</h2>
+  <div class="z-button collapsible">Expand index.zt</div>
+  <div class="content z-text--code-block">&lt;!--
+Copyright 2019 The zensational authors.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+--&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+  &lt;meta http-equiv="Content-Type" content="text/html; charset=UTF-8"&gt;
+  &lt;meta content="origin" name="referrer"&gt;
+  &lt;base href="."&gt;
+  &lt;title&gt;G++ - Discover&lt;/title&gt;
+  &lt;link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons"&gt;
+  &lt;link rel="stylesheet" href="css/plus.css"&gt;
+  &lt;link rel="stylesheet" href="../../css/zensational.min.css"&gt;
+  &lt;style rel="stylesheet" type="text/css"&gt;
+    .z-button {
+      font-weight: normal;
+      text-decoration: none !important;
+    }
+
+    .z-grid {
+      justify-content: start !important;
+    }
+
+    .z--visible {
+      display: unset;
+      opacity: 1 !important;
+    }
+
+    .Cri5O {
+      bottom: 16px;
+      height: 70px;
+    }
+  &lt;/style&gt;
+&lt;body id="yDmH0d" class="ghyPEc IqBfM ecJEib EWZcud cjGgHb LcUz9d" style="bottom: auto; right: auto; width: auto; height: 100%; min-height: 868px;"&gt;
+&lt;div class="SSPGKf Jvazdb"&gt;
+  &lt;div class="OFyC1e"&gt;
+    &lt;div class="u5oEgd"&gt;
+      &lt;div class="UVZlkc"&gt;
+        &lt;div class="YKZUAc eejsDc WH2D3d"&gt;
+          &lt;div class="L1NA8d"&gt;
+            &lt;div class="X4xgyd"&gt;
+              &lt;a class="n9qFx" href="#discover"&gt;
+                &lt;div class="OpEhZb"&gt;&lt;span class="DPvwYc DCYkOe"&gt;&lt;/span&gt;&lt;/div&gt;
+                &lt;div class="kiH7Kc"&gt;Discover&lt;/div&gt;
+              &lt;/a&gt;
+              &lt;a class="n9qFx" href="https://github.com/abc-inc/zensational"&gt;
+                &lt;div class="OpEhZb"&gt;G++&lt;/div&gt;
+                &lt;div class="kiH7Kc"&gt;Join Community&lt;/div&gt;
+              &lt;/a&gt;
+            &lt;/div&gt;
+            &lt;a class="n9qFx iVNuqf" href="https://github.com/abc-inc/zensational/issues"&gt;
+              &lt;div class="kiH7Kc"&gt;Send feedback&lt;/div&gt;
+            &lt;/a&gt;
+            &lt;a class="n9qFx iVNuqf" href="../../zensational.html#examples_google-plus"&gt;
+              &lt;div class="kiH7Kc"&gt;Help&lt;/div&gt;
+            &lt;/a&gt;
+          &lt;/div&gt;
+          &lt;div class="AlZIPe"&gt;&copy; April 1, 2019 ABC Inc.&lt;br&gt;
+            &centerdot; &lt;a href="#privacy" class="mfqKsb"&gt;Privacy Policy&lt;/a&gt;&lt;br&gt;
+            &centerdot; &lt;a href="#tos" class="mfqKsb"&gt;Terms of Service&lt;/a&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="AOq4tb Wxeofe"&gt;
+    &lt;div class="rDQqN"&gt;
+      &lt;div class="XS1fT vfJjge XS1fT___i12 RqpFEd"&gt;
+        &lt;div class="FGhx7c"&gt;
+          &lt;div class="Vrm0oe"&gt;
+            &lt;div class="o614gf dMPbYe"&gt;
+              &lt;div class="tmTbod"&gt;
+                &lt;a class="xdjHt ex5ZEb kTeh9"&gt;G++&lt;/a&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="f81Q3b aUhlxd"&gt;
+              &lt;div class="EPPZeb"&gt;&lt;span class="DPvwYc yuvn1"&gt;&lt;/span&gt;
+                &lt;div class="L6J0Pc VOEIyf IaFzsc"&gt;
+                  &lt;div class="d1dlne" style="position: relative"&gt;
+                    &lt;input id="search" class="yNVtPc ZAGvjd Ny5lGc" placeholder="Search G++"&gt;
+                  &lt;/div&gt;
+                &lt;/div&gt;
+              &lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="SNFoGf uYojab"&gt;&lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div class="T4LgNb O1bNWe"&gt;
+    &lt;div class="DAbEod"&gt;
+      &lt;div class="pWgqe"&gt;&lt;/div&gt;
+      &lt;div class="M7vp2c"&gt;
+        &lt;div class="jx5iDb aPExg"&gt;
+          &lt;div id="ebda1a" class="z-grid H68wj t1KkGe"&gt;&lt;/div&gt;
+          &lt;div id="d277db" class="z--hide"&gt;&lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="UC0Lbf kIYuLd"&gt;
+          &lt;div class="EIkL5b"&gt;
+            &lt;div class="Jb45He D7Ikwd"&gt;&lt;/div&gt;
+            &lt;div class="Jb45He SrWDEb"&gt;&lt;/div&gt;
+            &lt;div id="loadError" class="Jb45He w5rj0e"&gt;
+              &lt;div&gt;Unable to load more. &lt;span class="E3qfYc"&gt;Retry&lt;/span&gt;&lt;/div&gt;
+            &lt;/div&gt;
+          &lt;/div&gt;
+          &lt;div id="loadStatus" class="Jb45He x5PLcf"&gt;Wait while more content is being loaded&lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/div&gt;
+&lt;script type="application/javascript" src="../../../js/zen.min.js"&gt;&lt;/script&gt;
+&lt;script type="application/javascript" src="js/plus.js"&gt;&lt;/script&gt;</div>
+</div>
+<div id="js/plus.js">
+  <h2>js/plus.js</h2>
+  <div class="z-button collapsible">Expand js/plus.js</div>
+  <div class="content z-text--code-block">/*
+ * Copyright 2019 The zensational authors.
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *     http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
+ */
+
+'use strict';
+
+<span class="z-color-text--red">z.require</span>('dom');
+<span class="z-color-text--red">z.require</span>('net');
+
+
+var topics_ = [];
+var lastCount_ = 0;
+var lastSearch_ = null;
+var searchInput_ = <span class="z-color-text--red">z.dom.getElementById</span>('search');
+var searchResult_ = <span class="z-color-text--red">z.dom.getElementById</span>('ebda1a');
+var reloadButton_ = <span class="z-color-text--red">z.dom.getElementByClass</span>('E3qfYc');
+
+
+/**
+ * @param {number} index
+ * @returns {string}
+ */
+var getCard = function (index) {
+  var topic = topics_[index];
+  if (!<span class="z-color-text--red">z.isDefAndNotNull</span>(topic.dom)) {
+    topic.dom = renderCard_(index, topic['id'], topic['title'], topic['color'], topic['image']);
+  }
+  return topic.dom;
+};
+
+/**
+ * @param {number} index
+ * @param {string} id
+ * @param {string} title
+ * @param {string} color
+ * @param {string} image
+ * @returns {string}
+ */
+var renderCard_ = function (index, id, title, color, image) {
+  return '' +
+      '&lt;div id="topic_' + id + '" class="z-cell z-cell--3-col NzRmxf vCjazd"&gt;' +
+      '&lt;h2 class="SDJOje"&gt;&lt;/h2&gt;' +
+      '&lt;a class="w2Aa4 wRd1We kUqoPd" style="' + color + '" href=""&gt;' +
+      '&lt;div&gt;' +
+      '&lt;div class="E68jgf" style="padding-top: 56.25%"&gt;&lt;img class="JZUAbb" src="images/' + image + '" height="180" width="320" alt=""&gt;&lt;/div&gt;' +
+      '&lt;/div&gt;' +
+      '&lt;div class="Cri5O"&gt;&lt;div class="t8kvre"&gt;' + title + '&lt;/div&gt;' +
+      '&lt;div class="nerE3c"&gt;&lt;div class="UUUH4c"&gt;&lt;div class="U26fgb O0WRkf oG5Srb C0oVfc B7Nypc aKZ15"&gt;' +
+      '&lt;div class="Vwe4Vb MbhUzd"&gt;&lt;/div&gt;' +
+      '&lt;div class="ZFr60d CeoRYc"&gt;&lt;/div&gt;' +
+      '&lt;content class="CwaK9"&gt;&lt;span class="RveJvd snByac"&gt;&lt;div class="Yak35d"&gt;Follow&lt;/div&gt;&lt;/span&gt;&lt;/content&gt;' +
+      '&lt;/div&gt;&lt;/div&gt;&lt;/div&gt;' +
+      '&lt;/div&gt;' +
+      '&lt;/a&gt;' +
+      '&lt;/div&gt;';
+};
+
+/**
+ * @param {number} number
+ */
+var addCards = function (number) {
+  var value = searchInput_.value.toLowerCase();
+  for (var i = 0, added = 0; i &lt; topics_.length && added &lt; number; i++) {
+    var topic = topics_[i];
+    var matches = topic['title'].toLowerCase().indexOf(value);
+    if (matches &gt;= 0 && !<span class="z-color-text--red">z.isDefAndNotNull</span>(<span class="z-color-text--red">z.dom.getElementById</span>('topic_' + topic['id']))) {
+      <span class="z-color-text--red">z.dom.appendNode</span>(searchResult_, getCard(i));
+      lastCount_++;
+      added++;
+    }
+  }
+
+  var visClass = 'z--visible';
+  var loadStatus = <span class="z-color-text--red">z.dom.getElementById</span>('loadStatus');
+  var loadError = <span class="z-color-text--red">z.dom.getElementById</span>('loadError');
+  loadStatus.classList.remove(visClass);
+  loadError.classList.remove(visClass);
+
+  if (lastCount_ &lt; 5) {
+    loadStatus.classList.add(visClass);
+    if (!<span class="z-color-text--red">z.isDefAndNotNull</span>(lastSearch_)) {
+      lastSearch_ = new Date();
+      setTimeout(function () {
+        lastSearch_ = null;
+        loadStatus.classList.remove(visClass);
+        if (lastCount_ &lt; 5) {
+          loadStatus.classList.remove(visClass);
+          loadError.classList.add(visClass)
+        }
+      }, 5000);
+    }
+  } else {
+    loadStatus.classList.remove(visClass);
+  }
+};
+
+/**
+ * @returns {number}
+ */
+var getPageScrollOffset = function () {
+  var yScroll;
+
+  if (window.pageYOffset) {
+    yScroll = window.pageYOffset;
+  } else if (document.documentElement && document.documentElement.scrollTop) {
+    yScroll = document.documentElement.scrollTop;
+  } else if (document.body) {
+    yScroll = document.body.scrollTop;
+  }
+  return yScroll;
+};
+
+
+<span class="z-color-text--red">z.net.get</span>('topics.json', function (response) {
+  topics_ = JSON.parse(response.target.responseText);
+
+  var searchResult = <span class="z-color-text--red">z.dom.getElementById</span>('ebda1a');
+  while (searchResult.childElementCount &lt; Math.min(30, topics_.length)) {
+    var number = Math.floor(Math.random() * topics_.length);
+    if (!<span class="z-color-text--red">z.isDefAndNotNull</span>(topics_[number].dom)) {
+      <span class="z-color-text--red">z.dom.appendNode</span>(searchResult, getCard(number));
+    }
+  }
+});
+
+document.addEventListener('scroll', function (e) {
+  var offset = getPageScrollOffset();
+  var height = Math.max(document.documentElement.clientHeight, window.innerHeight || 256);
+  var bodyHeight = Math.max(document.body.scrollHeight, document.body.offsetHeight,
+      document.documentElement.clientHeight, document.documentElement.scrollHeight, document.documentElement.offsetHeight);
+
+  if (offset + height + 200 &gt; bodyHeight) {
+    addCards(20);
+  }
+});
+
+searchInput_.addEventListener('keyup', function (e) {
+  <span class="z-color-text--red">z.dom.removeChildren</span>(searchResult_);
+  lastCount_ = 0;
+
+  addCards(30);
+});
+
+reloadButton_.addEventListener('click', function (e) {
+  location.reload(true);
+});</div>
 </div>
 </section>
 

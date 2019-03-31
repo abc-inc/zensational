@@ -1,20 +1,21 @@
 <div class="z-text--headline">
-  zensational reduces the size of Google Search significantly.
+  Google Plus community discovery built using zensational.
 </div>
 
-<img src="images/google_search.png" class="lifted" style="display: block; margin: 2rem auto;">
+<img src="images/google_plus.png" class="lifted" style="display: block; margin: 2rem auto;">
 
 <h2>Source Code</h2>
-#for file in index _head _apps _button _logo _footer _footer_links
+#for file in index.zt js/plus.js
 #var file="${file/_/templates\/}"
-#var content="$(< "../docs/examples/search/${file}.zt")"
+#var content="$(< "../docs/examples/plus/${file}")"
 #var content="${content//</&lt;}"
 #var content="${content//>/&gt;}"
 #var content="$(echo "${content}" | sed -re 's%(^[ ]*#.*)%<span class="z-color-text--blue">\1</span>%g')"
 #var content="$(echo "${content}" | sed -re 's%(\$\{[^}]+\}|\$[0-9@])%<span class=\"z-color-text--red\">\1</span>%g')"
+#var content="$(echo "${content}" | sed -re 's%(z\.[^(]+)%<span class=\"z-color-text--red\">\1</span>%g')"
 <div id="${file}">
-  <h2>${file}.zt</h2>
-  <div class="z-button collapsible">Expand ${file}.zt</div>
+  <h2>${file}</h2>
+  <div class="z-button collapsible">Expand ${file}</div>
   <div class="content z-text--code-block">${content}</div>
 </div>
 #endfor

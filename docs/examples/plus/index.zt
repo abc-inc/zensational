@@ -1,0 +1,126 @@
+<!--
+Copyright 2019 The zensational authors.
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta content="origin" name="referrer">
+  <base href=".">
+  <title>G++ - Discover</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+  <link rel="stylesheet" href="css/plus.css">
+  <link rel="stylesheet" href="../../css/zensational.min.css">
+  <style rel="stylesheet" type="text/css">
+    .z-button {
+      font-weight: normal;
+      text-decoration: none !important;
+    }
+
+    .z-grid {
+      justify-content: start !important;
+    }
+
+    .z--visible {
+      display: unset;
+      opacity: 1 !important;
+    }
+
+    .Cri5O {
+      bottom: 16px;
+      height: 70px;
+    }
+  </style>
+<body id="yDmH0d" class="ghyPEc IqBfM ecJEib EWZcud cjGgHb LcUz9d" style="bottom: auto; right: auto; width: auto; height: 100%; min-height: 868px;">
+<div class="SSPGKf Jvazdb">
+  <div class="OFyC1e">
+    <div class="u5oEgd">
+      <div class="UVZlkc">
+        <div class="YKZUAc eejsDc WH2D3d">
+          <div class="L1NA8d">
+            <div class="X4xgyd">
+              <a class="n9qFx" href="#discover">
+                <div class="OpEhZb"><span class="DPvwYc DCYkOe"></span></div>
+                <div class="kiH7Kc">Discover</div>
+              </a>
+              <a class="n9qFx" href="https://github.com/abc-inc/zensational">
+                <div class="OpEhZb">G++</div>
+                <div class="kiH7Kc">Join Community</div>
+              </a>
+            </div>
+            <a class="n9qFx iVNuqf" href="https://github.com/abc-inc/zensational/issues">
+              <div class="kiH7Kc">Send feedback</div>
+            </a>
+            <a class="n9qFx iVNuqf" href="../../zensational.html#examples_google-plus">
+              <div class="kiH7Kc">Help</div>
+            </a>
+          </div>
+          <div class="AlZIPe">&copy; April 1, 2019 ABC Inc.<br>
+            &centerdot; <a href="#privacy" class="mfqKsb">Privacy Policy</a><br>
+            &centerdot; <a href="#tos" class="mfqKsb">Terms of Service</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="AOq4tb Wxeofe">
+    <div class="rDQqN">
+      <div class="XS1fT vfJjge XS1fT___i12 RqpFEd">
+        <div class="FGhx7c">
+          <div class="Vrm0oe">
+            <div class="o614gf dMPbYe">
+              <div class="tmTbod">
+                <a class="xdjHt ex5ZEb kTeh9">G++</a>
+              </div>
+            </div>
+            <div class="f81Q3b aUhlxd">
+              <div class="EPPZeb"><span class="DPvwYc yuvn1"></span>
+                <div class="L6J0Pc VOEIyf IaFzsc">
+                  <div class="d1dlne" style="position: relative">
+                    <input id="search" class="yNVtPc ZAGvjd Ny5lGc" placeholder="Search G++">
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="SNFoGf uYojab"></div>
+  </div>
+  <div class="T4LgNb O1bNWe">
+    <div class="DAbEod">
+      <div class="pWgqe"></div>
+      <div class="M7vp2c">
+        <div class="jx5iDb aPExg">
+          <div id="ebda1a" class="z-grid H68wj t1KkGe"></div>
+          <div id="d277db" class="z--hide"></div>
+        </div>
+        <div class="UC0Lbf kIYuLd">
+          <div class="EIkL5b">
+            <div class="Jb45He D7Ikwd"></div>
+            <div class="Jb45He SrWDEb"></div>
+            <div id="loadError" class="Jb45He w5rj0e">
+              <div>Unable to load more. <span class="E3qfYc">Retry</span></div>
+            </div>
+          </div>
+          <div id="loadStatus" class="Jb45He x5PLcf">Wait while more content is being loaded</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<script type="application/javascript" src="../../../js/zen.min.js"></script>
+<script type="application/javascript" src="js/plus.js"></script>

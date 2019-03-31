@@ -1,6 +1,9 @@
 <section id="google-search">
   #import examples/google-search
 </section>
+<section id="google-plus">
+  #import examples/google-plus
+</section>
 
 <script type="text/javascript">
   var listener = function (e) {
